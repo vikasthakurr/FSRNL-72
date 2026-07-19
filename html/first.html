@@ -1,23 +1,153 @@
+<!--
+  HTML - History & Boilerplate Structure Notes
+-->
+
+<!--
+  History of HTML
+
+  - HTML = HyperText Markup Language
+  - It is a MARKUP language, NOT a programming language
+  - It defines the STRUCTURE of web pages
+  - Invented by Tim Berners-Lee in 1991 at CERN (Switzerland)
+  - Tim Berners-Lee also invented: WWW, HTTP, URL
+
+  Timeline:
+  1991 - HTML 1.0 - First version, only 18 tags, basic text & links
+  1995 - HTML 2.0 - First standard, added forms, tables, images
+  1997 - HTML 3.2 - W3C recommendation, tables, applets
+  1999 - HTML 4.01 - Major version, CSS support, scripting, frames
+  2000 - XHTML 1.0 - HTML as XML, stricter syntax rules
+  2014 - HTML5 - Current standard, semantic tags, audio/video, canvas, APIs
+  2017+ - Living Standard - Maintained by WHATWG, continuously updated
+
+  Key Organizations:
+  - W3C (World Wide Web Consortium) - Maintained HTML standards (1994-2019)
+  - WHATWG (Web Hypertext Application Technology Working Group) - Current authority
+
+  HTML5 New Features:
+  - Semantic elements (header, nav, main, footer, article, section)
+  - Audio & Video tags (no need for Flash)
+  - Canvas for drawing graphics
+  - Local Storage & Session Storage
+  - Geolocation API
+  - Web Workers
+  - Form validations (required, pattern, email type, etc.)
+-->
+
+<!--
+  HTML Boilerplate - Structure Explained
+  The "boilerplate" is the minimum code every HTML page needs.
+-->
+
+<!--
+  1. <!DOCTYPE html>
+  - This is NOT an HTML tag, it is a DECLARATION
+  - Tells the browser this is an HTML5 document
+  - Without it, browser goes into "Quirks Mode" (inconsistent rendering)
+  - With it, browser uses "Standards Mode" (correct rendering)
+  - Must be the VERY FIRST line of the file
+-->
 <!doctype html>
+
+<!--
+  2. <html lang="en">
+  - Root element that wraps ALL other elements
+  - lang="en" tells browser & screen readers the language is English
+  - Helps with: accessibility, SEO, translation, pronunciation
+  - Other examples: lang="hi" (Hindi), lang="fr" (French)
+-->
 <html lang="en">
+  <!--
+    3. <head> - Metadata Container
+    - Contains information ABOUT the page
+    - Nothing inside <head> is VISIBLE on the page
+    - Includes: meta tags, title, CSS links, scripts, favicon
+  -->
   <head>
+    <!--
+      4. <meta charset="UTF-8">
+      - Sets the character encoding for the document
+      - UTF-8 supports ALL languages (English, Hindi, Chinese, Arabic, Emojis)
+      - Without it: special characters may show as ???? or garbage
+      - Should be within first 1024 bytes of the document
+    -->
     <meta charset="UTF-8" />
+
+    <!--
+      5. <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      - Makes the page RESPONSIVE (mobile-friendly)
+      - width=device-width - page width = device screen width
+      - initial-scale=1.0 - no zoom by default (100%)
+      - WITHOUT this: mobile browsers render at ~980px width and shrink it
+      - This is ESSENTIAL for responsive web design
+    -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>first program in html</title>
+
+    <!--
+      6. <title> - Page Title
+      - Shows in: browser tab, bookmarks, search engine results
+      - Important for SEO (Search Engine Optimization)
+      - Should be descriptive and unique for each page
+      - Recommended length: 50-60 characters
+    -->
+    <title>First HTML Page</title>
+
+    <!--
+      Other common <head> elements:
+      <meta name="description" content="...">  - SEO description
+      <meta name="keywords" content="...">     - SEO keywords
+      <link rel="stylesheet" href="style.css"> - External CSS
+      <link rel="icon" href="favicon.ico">     - Browser tab icon
+      <script src="app.js"></script>            - JavaScript file
+      <style> ... </style>                     - Internal CSS
+    -->
   </head>
+
+  <!--
+    7. <body> - Visible Content Container
+    - Everything the USER SEES goes inside <body>
+    - Text, images, videos, forms, links, buttons, etc.
+    - Only ONE <body> tag per document
+    - Best practice: put <script> tags at bottom of body
+      (so page renders before JS loads)
+  -->
   <body>
-    <!-- semantic tag -->
-    <!-- <nav></nav>
-    <img src="" alt="" />
-    <header></header> -->
-    <!-- non-semantic tag -->
-    <!-- div tag -->
-    <!-- <div></div> -->
+    <!--
+      Typical structure inside body:
+      <header>   - Top section (logo, navigation)
+      <nav>      - Navigation links
+      <main>     - Main content (only ONE per page)
+        <section>  - Grouped content
+        <article>  - Independent content
+      </main>
+      <aside>    - Sidebar content
+      <footer>   - Bottom section (copyright, links)
+    -->
 
-    <!-- <h1>vikas</h1>
-    <p>hi my name is vikas</p> -->
-
-    <!-- <span>Vikas</span>
-    <span>hi my name is vikas</span> -->
+    <h1>Hello World</h1>
+    <p>This is my first HTML page.</p>
   </body>
+
+  <!--
+    Boilerplate Summary:
+
+    <!DOCTYPE html>              - Tells browser it's HTML5
+    <html lang="en">             - Root element + language
+      <head>                     - Metadata (not visible)
+        <meta charset>           - Character encoding (UTF-8)
+        <meta viewport>          - Mobile responsiveness
+        <title>                  - Tab/bookmark/SEO title
+      </head>
+      <body>                     - Visible content
+        ...content...
+      </body>
+    </html>
+
+    Minimum required for valid HTML5:
+    1. <!DOCTYPE html>
+    2. <html> with lang attribute
+    3. <head> with charset meta
+    4. <title> element
+    5. <body> for content
+  -->
 </html>

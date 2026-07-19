@@ -1,0 +1,288 @@
+<!--
+  Inline vs Block Elements in HTML
+
+  Every HTML element has a default display behavior:
+  - Block elements - take full width, start on a new line
+  - Inline elements - take only content width, stay on same line
+
+  This is one of the most fundamental concepts in HTML/CSS layout.
+-->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inline & Block Elements</title>
+  </head>
+  <body>
+    <!--
+      BLOCK ELEMENTS
+
+      Properties:
+      - Always starts on a NEW LINE
+      - Takes FULL AVAILABLE WIDTH (100% of parent)
+      - Stacks vertically (one below another)
+      - Can set width, height, margin, padding (all sides work)
+      - Can contain other block elements AND inline elements
+
+      Common Block Elements:
+      <div>         - Generic block container
+      <p>           - Paragraph
+      <h1> to <h6>  - Headings
+      <ul>, <ol>    - Lists
+      <li>          - List item
+      <table>       - Table
+      <form>        - Form
+      <header>      - Header section
+      <nav>         - Navigation
+      <main>        - Main content
+      <section>     - Section
+      <article>     - Article
+      <aside>       - Sidebar
+      <footer>      - Footer
+      <blockquote>  - Block quote
+      <pre>         - Preformatted text
+      <hr>          - Horizontal rule
+      <video>       - Video (block-like behavior)
+    -->
+
+    <h2>Block Elements Example</h2>
+
+    <!-- Each of these takes full width and starts on new line -->
+    <div style="background: lightblue">This div takes full width</div>
+    <div style="background: lightgreen">This div also takes full width</div>
+    <p style="background: lightyellow">This paragraph is a block element too</p>
+
+    <!--
+      Notice: Even though the text is short, each element takes
+      the ENTIRE width and the next element goes BELOW it.
+    -->
+
+    <hr />
+
+    <!--
+      INLINE ELEMENTS
+
+      Properties:
+      - Does NOT start on a new line
+      - Takes ONLY the width of its content
+      - Sits side-by-side (flows horizontally)
+      - Cannot set width and height (ignored)
+      - Top/bottom margin does NOT work
+      - Top/bottom padding works visually but doesn't push other elements
+      - Left/right margin and padding work normally
+      - Can ONLY contain other inline elements (not block elements)
+
+      Common Inline Elements:
+      <span>    - Generic inline container
+      <a>       - Anchor/link
+      <img>     - Image (inline-block actually, special case)
+      <strong>  - Bold/important text
+      <em>      - Emphasized/italic text
+      <b>       - Bold text
+      <i>       - Italic text
+      <u>       - Underlined text
+      <small>   - Small text
+      <sub>     - Subscript
+      <sup>     - Superscript
+      <mark>    - Highlighted text
+      <code>    - Code text
+      <kbd>     - Keyboard input
+      <br>      - Line break
+      <input>   - Input field (inline-block)
+      <button>  - Button (inline-block)
+      <label>   - Form label
+      <select>  - Dropdown
+      <textarea> - Text area (inline-block)
+      <abbr>    - Abbreviation
+      <time>    - Time
+      <q>       - Inline quote
+    -->
+
+    <h2>Inline Elements Example</h2>
+
+    <!-- All these stay on the SAME line -->
+    <span style="background: lightblue">Span 1</span>
+    <span style="background: lightgreen">Span 2</span>
+    <span style="background: lightyellow">Span 3</span>
+    <a href="#">Link</a>
+    <strong>Bold</strong>
+    <em>Italic</em>
+
+    <!--
+      Notice: All inline elements sit NEXT to each other
+      on the same line until they run out of space.
+    -->
+
+    <hr />
+
+    <!--
+      INLINE-BLOCK ELEMENTS
+
+      There is a third display type: inline-block
+      It combines behavior of both:
+      - Sits on the SAME LINE like inline elements
+      - But CAN have width, height, margin, padding like block elements
+
+      Default inline-block elements:
+      <img>       - Image
+      <input>     - Input fields
+      <button>    - Buttons
+      <select>    - Dropdowns
+      <textarea>  - Text areas
+
+      You can also make any element inline-block using CSS:
+      display: inline-block;
+    -->
+
+    <h2>Inline-Block Example</h2>
+
+    <!-- img and button are inline-block by default -->
+    <button>Button 1</button>
+    <button>Button 2</button>
+    <button>Button 3</button>
+    <input type="text" placeholder="Input field" />
+
+    <hr />
+
+    <!--
+      Key Differences Comparison:
+
+      Feature         | Block              | Inline             | Inline-Block
+      --------------- | ------------------ | ------------------ | ------------------
+      New line?       | YES                | NO                 | NO
+      Full width?     | YES (100%)         | NO (content only)  | NO (content only)
+      Width/Height?   | YES (works)        | NO (ignored)       | YES (works)
+      Top/Bottom      | YES (works)        | NO (doesn't work)  | YES (works)
+      margin?         |                    |                    |
+      Can contain     | Block + Inline     | Inline only        | Block + Inline
+      other elements? |                    |                    |
+      Stacking        | Vertical           | Horizontal         | Horizontal
+    -->
+
+    <h2>Visual Comparison</h2>
+
+    <!-- Block: stacks vertically -->
+    <h3>Block (stacks vertically, full width)</h3>
+    <div style="background: #ffcccc; padding: 10px">Block 1</div>
+    <div style="background: #ccffcc; padding: 10px">Block 2</div>
+    <div style="background: #ccccff; padding: 10px">Block 3</div>
+
+    <!-- Inline: sits side by side, no width/height -->
+    <h3>Inline (side by side, content width only)</h3>
+    <span style="background: #ffcccc; padding: 5px">Inline 1</span>
+    <span style="background: #ccffcc; padding: 5px">Inline 2</span>
+    <span style="background: #ccccff; padding: 5px">Inline 3</span>
+
+    <!-- Inline-block: side by side WITH width/height -->
+    <h3>Inline-Block (side by side, but can set width/height)</h3>
+    <div
+      style="
+        display: inline-block;
+        width: 150px;
+        height: 50px;
+        background: #ffcccc;
+      "
+    >
+      Box 1
+    </div>
+    <div
+      style="
+        display: inline-block;
+        width: 150px;
+        height: 50px;
+        background: #ccffcc;
+      "
+    >
+      Box 2
+    </div>
+    <div
+      style="
+        display: inline-block;
+        width: 150px;
+        height: 50px;
+        background: #ccccff;
+      "
+    >
+      Box 3
+    </div>
+
+    <hr />
+
+    <!--
+      Important Rules:
+
+      1. Block inside Block - ALLOWED
+         <div><p>This is fine</p></div>
+
+      2. Inline inside Block - ALLOWED
+         <p><span>This is fine</span></p>
+
+      3. Block inside Inline - NOT ALLOWED (invalid HTML)
+         <span><div>This is WRONG</div></span>
+         <a><div>This is WRONG</div></a>
+
+      4. Inline inside Inline - ALLOWED
+         <span><strong>This is fine</strong></span>
+
+      Exception: <a> tag can wrap block elements in HTML5
+         <a href="#"><div>This is allowed in HTML5</div></a>
+    -->
+
+    <!--
+      Changing Display with CSS:
+
+      Make a block element behave like inline:
+        display: inline;
+
+      Make an inline element behave like block:
+        display: block;
+
+      Make any element behave like inline-block:
+        display: inline-block;
+
+      Hide an element:
+        display: none;
+
+      Example:
+      <span style="display: block;">Now this span acts like a block</span>
+      <div style="display: inline;">Now this div acts like inline</div>
+    -->
+
+    <h2>Changing Display Behavior</h2>
+
+    <!-- span made to behave like block -->
+    <span style="display: block; background: lightcoral; padding: 10px">
+      This span is now display: block (full width, new line)
+    </span>
+
+    <!-- div made to behave like inline -->
+    <div style="display: inline; background: lightseagreen; padding: 5px">
+      This div is now display: inline (content width, same line)
+    </div>
+    <div style="display: inline; background: lightsalmon; padding: 5px">
+      Another inline div
+    </div>
+
+    <!--
+      Summary:
+
+      Block Elements:
+      - Full width, new line, stackable vertically
+      - Width/height/margin/padding all work
+      - Examples: div, p, h1-h6, ul, ol, li, section, article, header, footer
+
+      Inline Elements:
+      - Content width, same line, flow horizontally
+      - Width/height ignored, top/bottom margin doesn't work
+      - Examples: span, a, strong, em, b, i, code, small, sub, sup
+
+      Inline-Block Elements:
+      - Same line like inline BUT width/height/margin work like block
+      - Examples: img, input, button, select, textarea
+
+      Rule: Use CSS display property to change any element's behavior
+    -->
+  </body>
+</html>

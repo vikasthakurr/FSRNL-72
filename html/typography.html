@@ -1,48 +1,280 @@
+<!--
+  Typography in HTML
+  Typography refers to how text content is structured, displayed and formatted.
+  HTML provides many tags to represent different types of text content.
+-->
+
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Typography in HTML</title>
   </head>
   <body>
-    <!-- <h1>this is largest heading</h1>
-    <h2>this is sub heading</h2>
-    <h3></h3>
-    <h4></h4>
-    <h5></h5>
-    <h6></h6> -->
     <!--
+      Headings: <h1> to <h6>
+      - HTML provides 6 levels of headings
+      - <h1> is the largest/most important, <h6> is the smallest/least important
+      - Use only ONE <h1> per page (for SEO and accessibility)
+      - Follow hierarchy: don't skip levels (h1 -> h2 -> h3, not h1 -> h4)
+      - Headings are block-level elements (take full width)
+      - Browsers add default margin and bold styling to headings
+    -->
+    <h1>Heading 1 - Main heading (largest)</h1>
+    <h2>Heading 2 - Sub heading</h2>
+    <h3>Heading 3 - Section heading</h3>
+    <h4>Heading 4 - Sub-section heading</h4>
+    <h5>Heading 5 - Small heading</h5>
+    <h6>Heading 6 - Smallest heading</h6>
+
+    <!--
+      Paragraph: <p>
+      - Used for blocks of text/paragraphs
+      - Block-level element (takes full width, new line before and after)
+      - Browsers add default top and bottom margin
+      - Multiple spaces and new lines inside <p> are collapsed into one space
+        (this is called "whitespace collapsing")
+    -->
+    <p>This is a paragraph. Browsers collapse multiple spaces into one.</p>
+    <p>This is another paragraph. Each</p>
+    <p>starts on a new line.</p>
+
+    <!--
+      Line Break: <br>
+      - Creates a line break (moves to next line)
+      - It is a SELF-CLOSING tag (no closing tag needed)
+      - Use for: poems, addresses, short line breaks
+      - Do NOT use <br> for spacing between elements (use CSS margin instead)
+    -->
     <p>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem, tenetur
-      veniam esse, earum eius temporibus a recusandae excepturi suscipit non
-      architecto perferendis sapiente minima, harum commodi! Ipsam quis vero
-      ducimus. Velit similique corrupti soluta aliquid architecto earum, iusto
-      pariatur maiores illo saepe quae eligendi harum. Libero modi culpa eaque
-      veniam.
+      Line one<br />
+      Line two<br />
+      Line three
     </p>
 
-    <pre>
-        To,
-        Vikas,
-        abc,new Delhi,
-        123456789
-    </pre> -->
     <!--
+      Horizontal Rule: <hr>
+      - Creates a horizontal line/divider
+      - Self-closing tag
+      - Used to separate content/topics
+      - Block-level element
+    -->
+    <hr />
+
+    <!--
+      Preformatted Text: <pre>
+      - Preserves whitespace (spaces, tabs, new lines) exactly as written
+      - Displayed in monospace/fixed-width font
+      - Useful for: code snippets, ASCII art, addresses, poems
+      - Unlike <p>, spaces and new lines are NOT collapsed
+    -->
+    <pre>
+      To,
+      Vikas Thakur,
+      New Delhi,
+      India - 110001
+    </pre>
+
+    <!--
+      Bold Text: <b> vs <strong>
+      - <b> - Makes text bold (visual only, no extra meaning)
+      - <strong> - Makes text bold AND indicates importance (semantic)
+      - Prefer <strong> for important text (better for accessibility/SEO)
+      - Screen readers emphasize <strong> text differently
+    -->
+    <p><b>This is bold (visual only)</b></p>
+    <p><strong>This is strong/important (semantic + bold)</strong></p>
+
+    <!--
+      Italic Text: <i> vs <em>
+      - <i> - Makes text italic (visual only, no extra meaning)
+      - <em> - Makes text italic AND indicates emphasis (semantic)
+      - Prefer <em> for emphasized text (better for accessibility)
+      - <i> is used for: technical terms, foreign words, thoughts
+    -->
+    <p><i>This is italic (visual only)</i></p>
+    <p><em>This is emphasized (semantic + italic)</em></p>
+
+    <!--
+      Underline: <u>
+      - Underlines text
+      - Avoid using for links confusion (users expect underline = link)
+      - Use for: misspelled words, proper nouns in Chinese
+    -->
+    <p><u>This text is underlined</u></p>
+
+    <!--
+      Strikethrough: <s> and <del>
+      - <s> - Strikethrough (content no longer accurate/relevant)
+      - <del> - Deleted text (indicates removed content, semantic)
+      - <del> is better for accessibility
+    -->
+    <p><s>This is no longer relevant</s></p>
+    <p>Price: <del>Rs 500</del> Rs 299</p>
+
+    <!--
+      Inserted Text: <ins>
+      - Underlined text that represents content that was added
+      - Often used with <del> to show edits
+    -->
+    <p>My favourite color is <del>blue</del> <ins>green</ins></p>
+
+    <!--
+      Small Text: <small>
+      - Makes text smaller than surrounding text
+      - Used for: fine print, copyright, disclaimers, side comments
+    -->
+    <p><small>Copyright 2024. All rights reserved.</small></p>
+
+    <!--
+      Superscript: <sup>
+      - Displays text slightly above the normal line (raised)
+      - Used for: exponents, footnotes, ordinal numbers
+    -->
+    <p>x<sup>2</sup> + y<sup>2</sup> = z<sup>2</sup></p>
+    <p>25<sup>th</sup> December</p>
+
+    <!--
+      Subscript: <sub>
+      - Displays text slightly below the normal line (lowered)
+      - Used for: chemical formulas, mathematical subscripts
+    -->
+    <p>H<sub>2</sub>O (Water)</p>
+    <p>CO<sub>2</sub> (Carbon Dioxide)</p>
+
+    <!--
+      Mark/Highlight: <mark>
+      - Highlights text with a yellow background
+      - Used for: search results, important highlighted content
+    -->
+    <p>
+      We need to focus on <mark>performance optimization</mark> this sprint.
+    </p>
+
+    <!--
+      Quotations: <blockquote> and <q>
+      - <blockquote> - Block-level quote (indented, for long quotes)
+      - <q> - Inline quote (adds quotation marks automatically)
+      - cite attribute can reference the source URL
+    -->
+    <blockquote cite="https://example.com">
+      The greatest glory in living lies not in never falling, but in rising
+      every time we fall.
+    </blockquote>
+    <p>As someone said, <q>Learning never exhausts the mind.</q></p>
+
+    <!--
+      Abbreviation: <abbr>
+      - Defines an abbreviation or acronym
+      - Use title attribute to show full form on hover
+      - Helps with accessibility and SEO
+    -->
+    <p><abbr title="HyperText Markup Language">HTML</abbr> is fun to learn.</p>
+    <p><abbr title="Cascading Style Sheets">CSS</abbr> is used for styling.</p>
+
+    <!--
+      Code: <code>
+      - Displays text in monospace font
+      - Used for: inline code, variable names, file names
+      - For multi-line code, wrap inside <pre><code>...</code></pre>
+    -->
+    <p>Use the <code>console.log()</code> function to debug.</p>
+
+    <!--
+      Keyboard Input: <kbd>
+      - Represents keyboard input
+      - Displayed in monospace font
+    -->
+    <p>Press <kbd>Ctrl</kbd> + <kbd>S</kbd> to save.</p>
+
+    <!--
+      Sample Output: <samp>
+      - Represents output from a computer program
+      - Displayed in monospace font
+    -->
+    <p>The console showed: <samp>Error 404: Page not found</samp></p>
+
+    <!--
+      Variable: <var>
+      - Represents a variable in math or programming
+      - Displayed in italic
+    -->
+    <p>The area of a circle is <var>A</var> = π<var>r</var><sup>2</sup></p>
+
+    <!--
+      Images: <img>
+      - Self-closing tag
+      - src = image path or URL (required)
+      - alt = alternative text for accessibility/SEO (required)
+      - width/height = image dimensions
+      - If image fails to load, alt text is shown
+    -->
     <img
       src="https://images.pexels.com/photos/5372827/pexels-photo-5372827.jpeg"
-      width="500px"
-      alt="this is an image of building"
-    /> -->
+      width="500"
+      alt="A building photograph"
+    />
 
-    <!-- <video
+    <!--
+      Video: <video>
+      - Used to embed video content
+      - Attributes:
+        src - video file path/URL
+        controls - shows play/pause/volume controls
+        autoplay - starts playing automatically
+        muted - starts muted (required for autoplay in most browsers)
+        loop - repeats video after ending
+        width/height - video dimensions
+        poster - thumbnail image before video plays
+    -->
+    <video
       src="https://www.pexels.com/download/video/35147318/"
-      width="200px"
+      width="400"
       controls
-      autoplay
       muted
-      loop
     ></video>
-    <audio src="vikas.mp3" controls></audio> -->
+
+    <!--
+      Audio: <audio>
+      - Used to embed audio content
+      - Attributes:
+        src - audio file path
+        controls - shows play/pause controls (without this, audio is invisible)
+        autoplay - starts playing automatically
+        muted - starts muted
+        loop - repeats audio
+      - Supported formats: MP3, WAV, OGG
+    -->
+    <audio src="song.mp3" controls></audio>
+
+    <!--
+      Summary of Typography Tags:
+
+      Headings:       <h1> to <h6>
+      Paragraph:      <p>
+      Line break:     <br>
+      Horizontal line:<hr>
+      Preformatted:   <pre>
+      Bold:           <b> (visual) / <strong> (semantic)
+      Italic:         <i> (visual) / <em> (semantic)
+      Underline:      <u>
+      Strikethrough:  <s> / <del>
+      Inserted:       <ins>
+      Small:          <small>
+      Superscript:    <sup>
+      Subscript:      <sub>
+      Highlight:      <mark>
+      Block quote:    <blockquote>
+      Inline quote:   <q>
+      Abbreviation:   <abbr>
+      Code:           <code>
+      Keyboard:       <kbd>
+      Sample output:  <samp>
+      Variable:       <var>
+      Image:          <img>
+      Video:          <video>
+      Audio:          <audio>
+    -->
   </body>
 </html>
