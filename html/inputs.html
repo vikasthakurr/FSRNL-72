@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+
+    <!-- HTML INPUTS - NOTES -->
+
+    <!-- <input> is a self-closing tag used to collect user data -->
+    <!-- The "type" attribute determines what kind of input is shown -->
+    <!-- <input> must be inside a <form> for submission to work -->
+
+    <!-- INPUT TYPES -->
+    <!-- type="text" → Single-line text field (default type) -->
+    <!-- type="email" → Validates email format (must have @ and domain) -->
+    <!-- type="password" → Hides characters with dots/asterisks -->
+    <!-- type="number" → Only accepts numbers, shows up/down arrows -->
+    <!-- type="tel" → For phone numbers (no validation, shows numeric keyboard on mobile) -->
+    <!-- type="date" → Date picker (YYYY-MM-DD format) -->
+    <!-- type="time" → Time picker (HH:MM format) -->
+    <!-- type="week" → Week picker -->
+    <!-- type="month" → Month and year picker -->
+    <!-- type="color" → Color picker (returns hex value like #ff0000) -->
+    <!-- type="range" → Slider control (use min and max attributes) -->
+    <!-- type="radio" → Select ONE option from a group (same name = same group) -->
+    <!-- type="checkbox" → Select MULTIPLE options (checked/unchecked) -->
+    <!-- type="file" → File upload button -->
+    <!-- type="hidden" → Not visible but sends data with form (used for IDs, tokens) -->
+    <!-- type="search" → Like text but may show clear button on some browsers -->
+    <!-- type="url" → Validates URL format -->
+    <!-- type="submit" → Submits the form -->
+    <!-- type="reset" → Resets all form fields to default values -->
+    <!-- type="button" → A clickable button (does nothing without JS) -->
+
+    <!-- IMPORTANT ATTRIBUTES FOR <input> -->
+    <!-- name → Key name sent to server (REQUIRED for form submission) -->
+    <!-- id → Unique identifier, used to link with <label> -->
+    <!-- placeholder → Hint text shown when field is empty -->
+    <!-- value → Default/pre-filled value -->
+    <!-- required → Field must be filled before submit -->
+    <!-- disabled → Field is greyed out, cannot be edited or submitted -->
+    <!-- readonly → Field can be seen but not edited, still submitted -->
+    <!-- min / max → Set range for number, date, range inputs -->
+    <!-- minlength / maxlength → Character limits for text inputs -->
+    <!-- pattern → Regex pattern for custom validation -->
+    <!-- autofocus → Automatically focuses this field on page load -->
+    <!-- autocomplete → Browser suggests previously entered values -->
+
+    <!-- <label> TAG -->
+    <!-- Links text to an input for accessibility -->
+    <!-- Two ways to use: -->
+    <!-- 1) <label for="email">Email</label> <input id="email"> (for matches id) -->
+    <!-- 2) <label><input type="checkbox"> Agree</label> (wrapping method) -->
+    <!-- Clicking the label focuses/toggles the linked input -->
+
+    <!-- RADIO BUTTONS -->
+    <!-- All radio buttons in a group must have the SAME name attribute -->
+    <!-- Only ONE can be selected at a time within the same name group -->
+    <!-- Use different value attributes to distinguish options -->
+
+    <!-- CHECKBOX -->
+    <!-- Each checkbox is independent (can select multiple) -->
+    <!-- Use same name with different values for grouped checkboxes -->
+
+    <!-- <select> DROPDOWN -->
+    <!-- Creates a dropdown list -->
+    <!-- <option> → Each choice in the dropdown -->
+    <!-- <optgroup label="..."> → Groups options under a heading -->
+    <!-- Use value attribute on <option> to set what gets submitted -->
+    <!-- First <option> is often a placeholder like "Select one..." -->
+    <!-- Add "multiple" attribute to allow selecting more than one option -->
+
+    <!-- <textarea> -->
+    <!-- Multi-line text input (for comments, messages, etc.) -->
+    <!-- Has rows and cols attributes to set visible size -->
+    <!-- Unlike <input>, it has a closing tag: <textarea></textarea> -->
+    <!-- Content between tags becomes the default value -->
+
+    <!-- ACCESSIBILITY TIPS -->
+    <!-- Always use <label> with every input -->
+    <!-- Use proper type for built-in validation and correct mobile keyboard -->
+    <!-- Add aria-required="true" or required attribute for mandatory fields -->
+    <!-- Group related inputs with <fieldset> and <legend> -->
+
+    <!-- COMMON MISTAKES -->
+    <!-- Forgetting the name attribute (data won't be sent to server) -->
+    <!-- Using placeholder as a replacement for <label> (bad for accessibility) -->
+    <!-- Not grouping radio buttons with the same name attribute -->
+    <!-- Using type="text" for everything instead of specific types -->
+
+    <form action="">
+      <input
+        type="text"
+        name=""
+        id="firstname"
+        placeholder="Enter first Name"
+      />
+      <br />
+      <input type="text" name="" id="lastname" placeholder="enter last name" />
+      <br />
+      <input type="email" name="" id="email" placeholder="enter valid email" />
+      <br />
+      <input
+        type="password"
+        name=""
+        id="password"
+        placeholder="enter valid password"
+      />
+      <br />
+      <input type="number" name="" id="" placeholder="age" />
+      <br />
+      <input type="date" name="" id="" />
+      <br />
+      <input type="time" name="" id="" />
+      <br />
+      <input type="week" name="" id="" />
+      <br />
+      <input type="month" name="" id="" />
+      <br />
+      <input type="color" name="" id="" /> <br />
+      <input type="range" name="" id="" min="0" max="200" />
+      <br />
+      <label for=""> <input type="radio" name="" id="" />Male </label>
+      <label for=""> <input type="radio" name="" id="" />Female </label>
+      <br />
+      <label for="">
+        <input type="checkbox" name="" id="" />Agree to term and condition
+      </label>
+      <br />
+      <input type="file" name="" id="" />
+      <br />
+      <!-- <input type="hidden" name="" value="123455"> -->
+      <br />
+      <!-- <input type="search" name="" id="" placeholder="enter username" /> -->
+      <input type="tel" name="" id="" placeholder="123456789" />
+      <br />
+      <input type="reset" value="reset" />
+      <br />
+      <input type="submit" value="submit" />
+      <br />
+      <select name="" id="">
+        <option value="">Select a meal type</option>
+        <!-- <option value="veg">Veg</option> -->
+        <optgroup label="veg">
+          <option value="">Paneer</option>
+        </optgroup>
+        <option value="non-veg">non Veg</option>
+        <option value="vegan">vegan</option>
+      </select>
+      <br />
+      <textarea name="" id=""></textarea>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Table in HTML</title>
+  </head>
+  <body>
+    <!-- TABLE IN HTML - NOTES -->
+
+    <!-- <table> is used to display data in rows and columns -->
+    <!-- Tables should ONLY be used for tabular data, NOT for page layout -->
+
+    <!-- TABLE STRUCTURE -->
+    <!-- <table> → The main container for the table -->
+    <!-- <thead> → Groups the header rows (top of table) -->
+    <!-- <tbody> → Groups the body/content rows -->
+    <!-- <tfoot> → Groups the footer rows (bottom of table) -->
+    <!-- <tr> → Table Row - creates a horizontal row -->
+    <!-- <th> → Table Header cell - bold and centered by default -->
+    <!-- <td> → Table Data cell - normal content cell -->
+    <!-- <caption> → Gives a title/description to the table (placed right after <table>) -->
+
+    <!-- IMPORTANT ATTRIBUTES -->
+    <!-- border="1" → Adds a border around cells (old way, use CSS instead in real projects) -->
+    <!-- colspan="2" → Makes a cell span across 2 columns -->
+    <!-- rowspan="2" → Makes a cell span across 2 rows -->
+
+    <!-- COLSPAN EXAMPLE -->
+    <!-- <th colspan="3">Student Report</th> → This header spans all 3 columns -->
+
+    <!-- ROWSPAN EXAMPLE -->
+    <!-- <td rowspan="2">Same Name</td> → This cell spans 2 rows vertically -->
+
+    <!-- THEAD vs TBODY vs TFOOT -->
+    <!-- thead → Contains column headings, renders at top -->
+    <!-- tbody → Contains the actual data rows -->
+    <!-- tfoot → Contains summary/footer info, renders at bottom -->
+    <!-- These are optional but good for semantics and accessibility -->
+
+    <!-- <th> vs <td> -->
+    <!-- <th> is for header cells - screen readers use it to associate data with headings -->
+    <!-- <td> is for regular data cells -->
+    <!-- <th> has scope attribute: scope="col" for column header, scope="row" for row header -->
+
+    <!-- CAPTION -->
+    <!-- <caption> provides an accessible title for the table -->
+    <!-- Screen readers announce it before reading the table -->
+    <!-- Always placed as the FIRST child of <table> -->
+
+    <!-- ACCESSIBILITY TIPS -->
+    <!-- Use <thead>, <tbody>, <tfoot> for proper structure -->
+    <!-- Use <th> with scope attribute for clear header associations -->
+    <!-- Use <caption> to describe what the table contains -->
+    <!-- Don't use tables for layout - use CSS Grid or Flexbox instead -->
+
+    <!-- COMMON MISTAKES -->
+    <!-- Using tables for page layout instead of CSS -->
+    <!-- Forgetting <thead> and <tbody> - browser adds tbody automatically but better to be explicit -->
+    <!-- Not using <th> for headers (using <td> with bold text is wrong) -->
+    <!-- Nesting tables inside tables (makes accessibility terrible) -->
+
+    <table border="1">
+      <!-- <caption>
+        Student's Data
+      </caption> -->
+      <!-- <tr>
+        <th colspan="3">Student's report</th>
+      </tr> -->
+      <!-- header -->
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Mobile</th>
+        </tr>
+      </thead>
+      <!-- body -->
+      <tbody>
+        <tr>
+          <td>Vikas</td>
+          <td>vikas@gmail.com</td>
+          <td>12345689</td>
+        </tr>
+        <tr>
+          <td>Akash</td>
+          <td>akash@gmail.com</td>
+          <td>23456789</td>
+        </tr>
+        <tr>
+          <td>Vikas</td>
+          <td>vikas@gmail.com</td>
+          <td>12345689</td>
+        </tr>
+        <tr>
+          <td>Akash</td>
+          <td>akash@gmail.com</td>
+          <td>23456789</td>
+        </tr>
+        <tr>
+          <td>Vikas</td>
+          <td>vikas@gmail.com</td>
+          <td>12345689</td>
+        </tr>
+        <tr>
+          <td>Akash</td>
+          <td>akash@gmail.com</td>
+          <td>23456789</td>
+        </tr>
+      </tbody>
+
+      <!-- footer -->
+    </table>
+  </body>
+</html>

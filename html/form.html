@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- HTML FORMS - NOTES -->
+
+    <!-- <form> is a container for collecting user input and sending it to a server -->
+    <!-- Forms are the primary way users interact with web applications -->
+
+    <!-- <form> ATTRIBUTES -->
+    <!-- action → URL where form data is sent (empty = same page) -->
+    <!-- method → HTTP method to use: -->
+    <!--   "GET" → Data appended to URL as query string (visible, limited size) -->
+    <!--   "POST" → Data sent in request body (hidden, no size limit, more secure) -->
+    <!-- enctype → How data is encoded before sending: -->
+    <!--   "application/x-www-form-urlencoded" → Default, key=value pairs -->
+    <!--   "multipart/form-data" → REQUIRED when form has file uploads -->
+    <!--   "text/plain" → For debugging, not commonly used -->
+    <!-- target → Where to show the response: _self (default), _blank (new tab) -->
+    <!-- autocomplete → "on" or "off" for browser autofill -->
+    <!-- novalidate → Disables built-in browser validation -->
+
+    <!-- GET vs POST -->
+    <!-- GET: Data visible in URL, bookmarkable, limited to ~2048 chars -->
+    <!-- POST: Data hidden in body, not bookmarkable, no size limit -->
+    <!-- Use GET for: search forms, filters, non-sensitive data -->
+    <!-- Use POST for: login, registration, file upload, sensitive data -->
+
+    <!-- <fieldset> and <legend> -->
+    <!-- <fieldset> → Groups related form controls together (draws a border) -->
+    <!-- <legend> → Title/caption for the fieldset group -->
+    <!-- Use them to organize long forms into logical sections -->
+    <!-- Screen readers announce the legend when entering a fieldset -->
+    <!-- Fieldsets can be nested inside other fieldsets -->
+
+    <!-- <label> TAG -->
+    <!-- Associates text with a form control -->
+    <!-- "for" attribute must match the input's "id" -->
+    <!-- Clicking label focuses/activates the linked input -->
+    <!-- Two ways: -->
+    <!--   1) <label for="name">Name:</label> <input id="name"> -->
+    <!--   2) <label>Name: <input></label> (wrapping method) -->
+    <!-- ALWAYS use labels - essential for accessibility -->
+
+    <!-- FORM SUBMISSION FLOW -->
+    <!-- 1. User fills in form fields -->
+    <!-- 2. User clicks submit button -->
+    <!-- 3. Browser validates fields (required, type, pattern) -->
+    <!-- 4. If valid, browser sends data to URL in "action" using "method" -->
+    <!-- 5. Server processes data and sends back a response -->
+    <!-- Note: Each input MUST have a "name" attribute to be included in submission -->
+
+    <!-- SUBMIT vs BUTTON -->
+    <!-- <input type="submit" value="Send"> → Submits the form -->
+    <!-- <button type="submit">Send</button> → Same but can contain HTML inside -->
+    <!-- <input type="reset"> → Clears all fields back to defaults -->
+    <!-- <button type="button"> → Does nothing without JavaScript -->
+
+    <!-- FORM VALIDATION (built-in) -->
+    <!-- required → Field must not be empty -->
+    <!-- type="email" → Must be valid email format -->
+    <!-- min/max → Number/date range -->
+    <!-- minlength/maxlength → Character count limits -->
+    <!-- pattern="[A-Za-z]+" → Custom regex validation -->
+    <!-- Browser shows error messages automatically if validation fails -->
+
+    <!-- ACCESSIBILITY TIPS -->
+    <!-- Use <label> for every input -->
+    <!-- Group related fields with <fieldset> and <legend> -->
+    <!-- Use proper input types for built-in validation -->
+    <!-- Add aria-required="true" for mandatory fields -->
+    <!-- Provide clear error messages near the invalid field -->
+    <!-- Use tab order (tabindex) logically -->
+
+    <!-- COMMON MISTAKES -->
+    <!-- Forgetting name attribute (data won't be sent to server!) -->
+    <!-- Not using enctype="multipart/form-data" for file uploads -->
+    <!-- Missing labels (bad accessibility, hard to click on mobile) -->
+    <!-- Using GET method for sensitive data like passwords -->
+    <!-- Not grouping related inputs with fieldset -->
+
+    <!-- <form action="" method="post">
+      <input type="text" name="username" id="username" placeholder="enter username" />
+      <br />
+      <input type="submit" value="Login" />
+    </form> -->
+    <form action="">
+      <fieldset>
+        <legend>Event Registration from</legend>
+        <!-- <fieldset>
+            <img src="" alt="">
+        </fieldset> -->
+        <fieldset>
+          <legend>Personal Info</legend>
+          <label for="">Username:</label>
+          <input type="text" name="" id="" placeholder="enter username" />
+          <br /><br />
+          <label for="">FullName</label>
+          <input type="text" name="" id="" placeholder="enter FullName" />
+        </fieldset>
+        <fieldset>
+          <legend>Contact Info</legend>
+          <label for="">Email:</label>
+          <input type="email" name="" id="" placeholder="enter valid email" />
+          <label for="">Contact No:</label>
+          <input
+            type="text"
+            name=""
+            id=""
+            placeholder="enter valid Mobile"
+            value="+91"
+          />
+        </fieldset>
+        <fieldset>
+          <legend>Document</legend>
+          <label for="">Id Card:</label>
+          <input type="file" name="" id="" />
+        </fieldset>
+        <fieldset>
+          <legend>Any Suggestion</legend>
+          <label for="">Suggestion:</label>
+          <textarea name="" id="" rows="5" cols="10"></textarea>
+        </fieldset>
+
+        <label for="">
+          <input type="checkbox" name="" id="" />
+          Agree to Term and conditions
+        </label>
+        <br />
+        <br />
+        <input type="submit" value="Submit Forms" />
+      </fieldset>
+    </form>
+
+    <h1>You have to create a admission form of any events</h1>
+  </body>
+</html>

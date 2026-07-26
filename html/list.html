@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- LISTS IN HTML - NOTES -->
+
+    <!-- There are 3 types of lists in HTML -->
+    <!-- 1) Unordered List (<ul>) - bullet points, no specific order -->
+    <!-- 2) Ordered List (<ol>) - numbered, sequence matters -->
+    <!-- 3) Description List (<dl>) - term and description pairs -->
+
+    <!-- UNORDERED LIST (<ul>) -->
+    <!-- Used when the order of items does NOT matter -->
+    <!-- Each item is wrapped in <li> (list item) -->
+    <!-- Default bullet style is a filled circle (disc) -->
+    <!-- list-style-type values: disc, circle, square, none -->
+    <!-- Common use: navigation menus, feature lists, shopping lists -->
+
+    <!-- ORDERED LIST (<ol>) -->
+    <!-- Used when the order of items MATTERS (steps, rankings, etc.) -->
+    <!-- Each item is wrapped in <li> -->
+    <!-- Attributes: -->
+    <!-- start="5" → Start numbering from 5 instead of 1 -->
+    <!-- type="1" → Numbers (default): 1, 2, 3 -->
+    <!-- type="A" → Uppercase letters: A, B, C -->
+    <!-- type="a" → Lowercase letters: a, b, c -->
+    <!-- type="I" → Uppercase Roman: I, II, III -->
+    <!-- type="i" → Lowercase Roman: i, ii, iii -->
+    <!-- reversed → Counts down instead of up -->
+
+    <!-- DESCRIPTION LIST (<dl>) -->
+    <!-- Used for term-definition pairs (glossary, FAQ, metadata) -->
+    <!-- <dl> → Description List container -->
+    <!-- <dt> → Description Term (the word/title) -->
+    <!-- <dd> → Description Details (the explanation) -->
+    <!-- One <dt> can have multiple <dd> elements -->
+
+    <!-- NESTING LISTS -->
+    <!-- You can put a list inside another list (nested list) -->
+    <!-- The nested <ul> or <ol> goes INSIDE an <li> element -->
+    <!-- Example: <li>Fruits<ul><li>Apple</li><li>Banana</li></ul></li> -->
+
+    <!-- <li> TAG -->
+    <!-- <li> can only be a direct child of <ul>, <ol>, or <menu> -->
+    <!-- Do NOT place <li> directly inside <div> or <body> -->
+
+    <!-- COMMON USE CASES -->
+    <!-- Navigation bars use <ul> with CSS (list-style: none; display: flex) -->
+    <!-- Breadcrumbs use <ol> because order matters -->
+    <!-- FAQ sections can use <dl> for question-answer pairs -->
+
+    <!-- ACCESSIBILITY -->
+    <!-- Screen readers announce "list, 3 items" so users know its a list -->
+    <!-- Using list-style: none removes bullet but screen reader still knows its a list -->
+    <!-- Use <nav> wrapper around navigation lists for better semantics -->
+
+    <!-- COMMON MISTAKES -->
+    <!-- Using <br> tags to create list-like content instead of actual lists -->
+    <!-- Putting text directly in <ul> or <ol> without wrapping in <li> -->
+    <!-- Using lists for layout purposes instead of displaying list data -->
+
+    <!-- unordered list -->
+    <ul
+      style="
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
+      "
+    >
+      <li>Item-1</li>
+      <li>item-2</li>
+      <li>Item-1</li>
+    </ul>
+    <!-- ordered list -->
+    <!-- <ol start="1" type="1">
+      <li>Item-1</li>
+      <li>item-2</li>
+      <li>Item-1</li>
+      <li>item-2</li>
+      <li>Item-1</li>
+      <li>item-2</li>
+    </ol> -->
+
+    <!-- desc list -->
+    <!-- <dl>
+      <dt>HTML</dt>
+      <dd>HTML is for making outline of webpage</dd>
+      <dt>CSS</dt>
+      <dd>CSS can be used to style the webpage</dd>
+    </dl> -->
+  </body>
+</html>

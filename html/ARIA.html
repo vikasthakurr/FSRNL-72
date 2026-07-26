@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ARIA Notes</title>
+  </head>
+  <body>
+    <!-- ARIA = Accessible Rich Internet Applications -->
+    <!-- It is a set of HTML attributes that make web content more accessible to people with disabilities -->
+    <!-- Especially useful for people using screen readers and other assistive technologies -->
+    <!-- ARIA does NOT change how elements look or behave visually -->
+    <!-- It ONLY changes how they are announced to assistive tech -->
+
+    <!-- WHY DO WE NEED ARIA? -->
+    <!-- HTML has semantic elements like <button>, <nav>, <form> that are already accessible -->
+    <!-- But developers sometimes use <div> and <span> to build custom widgets (tabs, modals, sliders) -->
+    <!-- Screen readers cannot understand what these custom elements do -->
+    <!-- ARIA bridges this gap by telling assistive tech what role, state, and properties an element has -->
+    <!-- RULE #1: If a native HTML element already has the semantics you need, use it instead of ARIA -->
+    <!-- Example: Use <button> instead of <div role="button"> -->
+
+    <!-- THREE PILLARS OF ARIA -->
+    <!-- 1) ROLES - Defines what an element IS (its purpose) -->
+    <!--    Examples: role="button", role="navigation", role="alert" -->
+    <!-- 2) PROPERTIES - Gives extra information about the element -->
+    <!--    Examples: aria-label, aria-labelledby, aria-describedby -->
+    <!-- 3) STATES - Describes the current condition (can change dynamically) -->
+    <!--    Examples: aria-disabled, aria-expanded, aria-checked -->
+
+    <!-- COMMON ROLES -->
+    <!-- role="button" → Element acts as a button -->
+    <!-- role="navigation" → Container for navigation links -->
+    <!-- role="alert" → Important message announced immediately -->
+    <!-- role="checkbox" → Element acts as a checkbox -->
+    <!-- role="progressbar" → Shows progress of a task -->
+    <!-- role="dialog" → A modal/dialog box -->
+    <!-- role="tab" / role="tabpanel" → Tab interface components -->
+    <!-- role="search" → A search form/section -->
+    <!-- role="banner" → Site header/banner area -->
+
+    <!-- COMMON PROPERTIES -->
+    <!-- aria-label → Provides an invisible accessible name -->
+    <!-- aria-labelledby → Points to another element's ID as the label -->
+    <!-- aria-describedby → Points to an element that describes this one -->
+    <!-- aria-required → Indicates a field is required -->
+    <!-- aria-valuemin → Minimum value for range widgets -->
+    <!-- aria-valuemax → Maximum value for range widgets -->
+    <!-- aria-valuenow → Current value for range widgets -->
+    <!-- aria-live → Announces dynamic content changes -->
+
+    <!-- COMMON STATES -->
+    <!-- aria-disabled="true/false" → Element is disabled -->
+    <!-- aria-expanded="true/false" → Element is expanded (dropdown, accordion) -->
+    <!-- aria-checked="true/false/mixed" → Checkbox/radio is checked -->
+    <!-- aria-selected="true/false" → Item is selected (tabs, list items) -->
+    <!-- aria-hidden="true/false" → Hides element from assistive tech (still visible on screen) -->
+    <!-- aria-invalid="true/false" → Field has an invalid value -->
+
+    <!-- aria-live VALUES -->
+    <!-- aria-live="off" → Updates are NOT announced (default) -->
+    <!-- aria-live="polite" → Announced when screen reader is idle (use for status messages) -->
+    <!-- aria-live="assertive" → Announced immediately, interrupts (use for error alerts) -->
+
+    <!-- COMMON MISTAKES -->
+    <!-- Using role="button" on a <div> without adding keyboard support -->
+    <!-- Adding aria-label to a <div> (it only works on interactive/landmark elements) -->
+    <!-- Using aria-hidden="true" on focusable elements (hidden but still gets focus) -->
+    <!-- Overusing ARIA when semantic HTML would work fine -->
+    <!-- Not updating ARIA states with JavaScript when user interacts -->
+
+    <!-- SUMMARY -->
+    <!-- ARIA = Accessible Rich Internet Applications -->
+    <!-- 3 categories: Roles, Properties, States -->
+    <!-- Use ARIA only when native HTML can't do the job -->
+    <!-- ARIA doesn't add behavior - you still need JS for interactions -->
+    <!-- Always test with a screen reader (NVDA, VoiceOver, JAWS) -->
+    <!-- First rule: Don't use ARIA if you don't need to! -->
+
+    <h1 id="title">ARIA Examples</h1>
+
+    <!-- Progress bar example -->
+    <progress value="50" max="100"></progress>
+    <div
+      role="progressbar"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuenow="50"
+    >
+      50%
+    </div>
+
+    <!-- aria-label example -->
+    <button aria-label="Close menu">X</button>
+
+    <!-- aria-labelledby example -->
+    <h2 id="formTitle">Login Form</h2>
+    <form action="" aria-labelledby="formTitle">
+      <label for="email">Email:</label>
+      <input type="email" id="email" aria-required="true" />
+    </form>
+
+    <!-- aria-disabled example -->
+    <button aria-disabled="true">Submit (disabled)</button>
+
+    <!-- Custom checkbox with role -->
+    <div role="checkbox" aria-checked="true">I agree to the terms</div>
+
+    <!-- aria-live example -->
+    <div aria-live="polite">Your order has been placed successfully!</div>
+
+    <!-- aria-hidden example -->
+    <p><span aria-hidden="true">🎨</span> Settings</p>
+  </body>
+</html>
