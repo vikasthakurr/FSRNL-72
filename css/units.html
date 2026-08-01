@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        ========== CSS UNITS NOTES ==========
+
+        CSS Units are divided into two categories:
+
+        1. ABSOLUTE UNITS (Fixed size, do not change based on context)
+           - px  : Pixels (1px = 1/96th of 1in). Most commonly used absolute unit.
+           - cm  : Centimeters
+           - mm  : Millimeters
+           - in  : Inches (1in = 96px)
+           - pt  : Points (1pt = 1/72nd of 1in)
+           - pc  : Picas (1pc = 12pt)
+
+        2. RELATIVE UNITS (Size depends on parent or viewport)
+           - %   : Percentage relative to the parent element's size.
+           - em  : Relative to the font-size of the parent element.
+                   e.g., if parent font-size is 16px, then 2em = 32px.
+           - rem : Relative to the font-size of the root (html) element.
+                   e.g., if html font-size is 25px, then 1rem = 25px.
+                   More predictable than em because it doesn't compound.
+           - vw  : 1% of the viewport width. 100vw = full viewport width.
+           - vh  : 1% of the viewport height. 100vh = full viewport height.
+           - vmin: 1% of the smaller dimension (width or height) of the viewport.
+           - vmax: 1% of the larger dimension (width or height) of the viewport.
+           - ch  : Width of the "0" character of the element's font.
+           - ex  : Height of the "x" character of the element's font.
+
+        KEY DIFFERENCES:
+        - px vs %  : px is fixed; % adapts to parent size (responsive).
+        - em vs rem: em compounds (child inherits parent), rem always references root.
+        - vw/vh    : Great for full-screen layouts, responsive to viewport resize.
+
+        WHEN TO USE WHAT:
+        - Use rem for font-sizes (consistent scaling across the page).
+        - Use % or vw/vh for widths and heights (responsive layouts).
+        - Use px for borders, shadows, or when you need exact fixed sizes.
+        - Use em for component-level spacing that should scale with local font-size.
+
+        =====================================
+    -->
+    <style>
+        html{
+            font-size: 25px;
+        }
+        .parent{
+            /* width: 600px;
+            height: 600px; */
+            width: 100vw;
+            height: 100vh;
+            background-color: red;
+        }
+        .child{
+            /* width: 300px;
+            height: 300px; */
+            width: 50%;
+            height: 50%;
+            background-color: beige;
+            
+            
+            
+        }
+        .child h1{
+            font-size: 1rem;
+        }
+        .child h2{
+            font-size: 1.4rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child">
+            <h1>vikas thakur</h1>
+            <h2>my name is</h2>
+        </div>
+    </div>
+</body>
+</html>

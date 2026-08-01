@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        ========== CSS COLORS NOTES ==========
+
+        There are multiple ways to define colors in CSS:
+
+        1. NAMED COLORS
+           - CSS has 140+ predefined color names.
+           - Examples: red, blue, green, magenta, coral, tomato, steelblue, etc.
+           - Usage: color: red;
+
+        2. HEX (Hexadecimal)
+           - Format: #RRGGBB (6 digits) or #RGB (3 digit shorthand)
+           - Each pair represents Red, Green, Blue (00 to FF).
+           - Examples:
+             #FF0000 = red, #00FF00 = green, #0000FF = blue
+             #000000 = black, #FFFFFF = white
+             #6320EE = purple shade
+           - Shorthand: #F00 = #FF0000
+           - With alpha: #RRGGBBAA (8 digits), e.g., #FF000080 = 50% transparent red
+
+        3. RGB (Red, Green, Blue)
+           - Format: rgb(red, green, blue)
+           - Values range from 0 to 255.
+           - Examples:
+             rgb(255, 0, 0) = red
+             rgb(0, 255, 0) = green
+             rgb(0, 0, 255) = blue
+
+        4. RGBA (RGB + Alpha/Opacity)
+           - Format: rgba(red, green, blue, alpha)
+           - Alpha ranges from 0 (fully transparent) to 1 (fully opaque).
+           - Examples:
+             rgba(255, 0, 0, 1)   = fully opaque red
+             rgba(255, 0, 0, 0.5) = 50% transparent red
+             rgba(0, 0, 0, 0.3)   = 30% opaque black (used for overlays)
+
+        5. HSL (Hue, Saturation, Lightness)
+           - Format: hsl(hue, saturation%, lightness%)
+           - Hue: 0-360 (color wheel degree). 0=red, 120=green, 240=blue
+           - Saturation: 0% = gray, 100% = full color
+           - Lightness: 0% = black, 50% = normal, 100% = white
+           - Examples:
+             hsl(0, 100%, 50%)   = red
+             hsl(120, 100%, 50%) = green
+             hsl(240, 100%, 50%) = blue
+
+        6. HSLA (HSL + Alpha)
+           - Format: hsla(hue, saturation%, lightness%, alpha)
+           - Example: hsla(0, 100%, 50%, 0.5) = 50% transparent red
+
+        KEY POINTS:
+        - Named colors are easy to read but limited in shades.
+        - HEX is most commonly used in web design (compact format).
+        - RGB/RGBA gives precise control; RGBA is great for transparency.
+        - HSL/HSLA is more intuitive for adjusting shades and tints.
+        - Use opacity property to make entire element transparent (affects children too).
+        - Use rgba/hsla when you only want the color itself to be transparent.
+
+        SPECIAL VALUES:
+        - transparent : Fully transparent (same as rgba(0,0,0,0))
+        - currentColor: Inherits the current text color value
+        - inherit     : Takes the color value from the parent element
+
+        ==========================================
+    -->
+    <style>
+        /* h1{
+            color: mejenta;
+        } */
+         h1{
+            /* color: rgba(255, 0, 0,1); */
+            color: #6320EE;
+         }
+    </style>
+</head>
+<body>
+    <!-- named color  -->
+    <h1>vikas</h1>
+</body>
+</html>

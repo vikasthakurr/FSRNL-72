@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors</title>
+
+    <!-- 
+        ========== CSS SELECTORS NOTES ==========
+
+        A CSS Selector is used to "select" (target) HTML elements you want to style.
+
+        ──────────────────────────────────────────
+        1. BASIC SELECTORS
+        ──────────────────────────────────────────
+
+        a) Universal Selector (*)
+           - Selects ALL elements on the page.
+           - Example: * { margin: 0; padding: 0; }
+
+        b) Element/Type Selector
+           - Selects all elements of a given tag name.
+           - Example: h1 { color: red; }   → targets all <h1> elements
+
+        c) Class Selector (.)
+           - Selects elements with a specific class attribute.
+           - Example: .card { border: 1px solid; }  → targets class="card"
+           - One element can have multiple classes: class="card active"
+
+        d) ID Selector (#)
+           - Selects the element with a specific id attribute.
+           - Example: #header { background: blue; }  → targets id="header"
+           - IDs should be unique per page (only one element with that id).
+
+        e) Attribute Selector ([])
+           - Selects elements based on their attributes.
+           - Examples:
+             [type="text"]      → inputs with type text
+             [href^="https"]    → links starting with https
+             [class*="btn"]     → elements with "btn" anywhere in class
+             [data-active]      → elements that have data-active attribute
+
+        ──────────────────────────────────────────
+        2. COMBINATOR SELECTORS
+        ──────────────────────────────────────────
+
+        a) Descendant Selector (space)
+           - Selects all matching elements INSIDE (any depth) the parent.
+           - Example: div p { color: red; }  → all <p> inside any <div>
+
+        b) Child Selector (>)
+           - Selects only DIRECT children.
+           - Example: div > p { color: red; }  → only <p> that is a direct child of <div>
+
+        c) Adjacent Sibling Selector (+)
+           - Selects the element immediately AFTER (same level).
+           - Example: h1 + p { margin-top: 0; }  → <p> right after <h1>
+
+        d) General Sibling Selector (~)
+           - Selects ALL siblings after the element (same level).
+           - Example: h1 ~ p { color: gray; }  → all <p> siblings after <h1>
+
+        ──────────────────────────────────────────
+        3. PSEUDO-CLASS SELECTORS (:)
+        ──────────────────────────────────────────
+        - Select elements based on their STATE or POSITION.
+
+        a) User Action / State:
+           :hover      → when mouse is over the element
+           :focus      → when element is focused (e.g., input clicked)
+           :active     → when element is being clicked
+           :visited    → links that have been visited
+           :link       → unvisited links
+
+        b) Structural:
+           :first-child    → first child of its parent
+           :last-child     → last child of its parent
+           :nth-child(n)   → nth child (n can be number, odd, even, formula like 2n+1)
+           :nth-of-type(n) → nth element of its type
+           :only-child     → element that is the only child
+           :not(selector)  → elements that do NOT match the selector
+
+        c) Form-related:
+           :checked     → checked checkboxes/radio buttons
+           :disabled    → disabled form elements
+           :required    → form elements with required attribute
+           :valid       → form elements with valid input
+           :invalid     → form elements with invalid input
+
+        ──────────────────────────────────────────
+        4. PSEUDO-ELEMENT SELECTORS (::)
+        ──────────────────────────────────────────
+        - Select and style a PART of an element (not a real DOM element).
+
+           ::before       → inserts content before element's content
+           ::after        → inserts content after element's content
+           ::first-line   → targets the first line of text
+           ::first-letter → targets the first letter of text
+           ::placeholder  → styles placeholder text in inputs
+           ::selection    → styles text selected/highlighted by user
+
+        - Example:
+           h1::before { content: "★ "; }  → adds a star before every h1
+
+        ──────────────────────────────────────────
+        5. GROUPING SELECTOR (,)
+        ──────────────────────────────────────────
+        - Apply same styles to multiple selectors.
+        - Example: h1, h2, h3 { font-family: Arial; }
+
+        ──────────────────────────────────────────
+        6. SPECIFICITY (Priority Order)
+        ──────────────────────────────────────────
+        - When multiple rules target the same element, specificity decides which wins.
+        - Priority (low to high):
+           1. Universal (*)             → 0,0,0,0
+           2. Element/Type (h1, div)    → 0,0,0,1
+           3. Class, Attribute, Pseudo-class (.card, [type], :hover) → 0,0,1,0
+           4. ID (#header)              → 0,1,0,0
+           5. Inline style (style="")   → 1,0,0,0
+           6. !important                → Overrides everything (avoid using)
+
+        - If specificity is equal, the LAST rule written wins (cascade).
+
+        TIPS:
+        - Prefer classes over IDs for styling (reusable, lower specificity).
+        - Avoid !important unless absolutely necessary.
+        - Use combinators to be specific without raising specificity too much.
+        - Group related selectors to keep CSS DRY (Don't Repeat Yourself).
+
+        ==========================================
+    -->
+
+    <style>
+        /* Add your selector examples here */
+    </style>
+</head>
+<body>
+    
+</body>
+</html>
