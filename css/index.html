@@ -1,6 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!--
+    ============================================
+    CSS INTRODUCTION NOTES
+    ============================================
+
+    What is CSS?
+    - CSS stands for Cascading Style Sheets.
+    - It is used to style and layout HTML elements on a webpage.
+    - CSS separates content (HTML) from presentation (styling).
+    - It controls colors, fonts, spacing, layout, animations, and responsiveness.
+
+    Ways to Add CSS:
+    1. Inline CSS    → style attribute directly on an element (highest specificity)
+       e.g., <p style="color: red;">Hello</p>
+    2. Internal CSS  → <style> tag inside the <head> section
+    3. External CSS  → separate .css file linked via <link rel="stylesheet" href="style.css">
+
+    ============================================
+    THE CASCADE
+    ============================================
+
+    Why "Cascading"?
+    - The "cascade" determines which CSS rules apply when multiple rules target the same element.
+    - It resolves conflicts using a priority order.
+
+    Cascade Priority (from lowest to highest):
+    1. Browser default styles (user-agent stylesheet)
+    2. External stylesheet
+    3. Internal stylesheet (<style> tag)
+    4. Inline styles (style attribute)
+    5. !important (overrides everything — use sparingly!)
+
+    ============================================
+    SPECIFICITY
+    ============================================
+
+    - When multiple rules have the same cascade level, specificity decides the winner.
+    - Specificity hierarchy (low to high):
+      1. Element/type selectors (e.g., h1, p, div)          → 0,0,1
+      2. Class selectors, attribute selectors, pseudo-classes
+         (e.g., .myClass, [type="text"], :hover)            → 0,1,0
+      3. ID selectors (e.g., #myId)                         → 1,0,0
+      4. Inline styles                                      → 1,0,0,0
+      5. !important                                         → overrides all
+
+    Example:
+      p { color: blue; }            → specificity: 0,0,1
+      .text { color: green; }       → specificity: 0,1,0
+      #intro { color: red; }        → specificity: 1,0,0
+      Result: #intro wins because it has the highest specificity.
+
+    ============================================
+    INHERITANCE
+    ============================================
+
+    - Some CSS properties are inherited by child elements from their parent.
+    - Inherited properties: color, font-family, font-size, line-height, visibility, etc.
+    - Non-inherited properties: margin, padding, border, width, height, display, etc.
+    - You can force inheritance with: property: inherit;
+    - You can reset to default with: property: initial;
+
+    ============================================
+    CSS RULE STRUCTURE
+    ============================================
+
+    selector {
+        property: value;
+    }
+
+    Example:
+    h1 {
+        color: blue;
+        font-size: 24px;
+    }
+
+    - Selector: targets the HTML element(s) to style.
+    - Declaration block: everything inside { }.
+    - Declaration: a property-value pair separated by a colon, ending with a semicolon.
+
+    ============================================
+-->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
