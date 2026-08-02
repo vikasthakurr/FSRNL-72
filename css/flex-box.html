@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* ============================================
+         CSS FLEXBOX NOTES
+         ============================================
+         
+         - Flexbox is a one-dimensional layout model (row OR column at a time).
+         - Apply display: flex on the parent (flex container) to activate.
+         
+         CONTAINER (Parent) Properties:
+         - display: flex | inline-flex
+         - flex-direction: row (default) | row-reverse | column | column-reverse
+         - flex-wrap: nowrap (default) | wrap | wrap-reverse
+         - flex-flow: shorthand for flex-direction + flex-wrap (e.g., row wrap)
+         - justify-content: alignment along MAIN axis
+             → flex-start | flex-end | center | space-between | space-around | space-evenly
+         - align-items: alignment along CROSS axis
+             → stretch (default) | flex-start | flex-end | center | baseline
+         - align-content: multi-line alignment (only works with flex-wrap)
+             → flex-start | flex-end | center | space-between | space-around | stretch
+         - gap: space between flex items (row-gap, column-gap)
+         
+         ITEM (Child) Properties:
+         - order: controls display order (default 0, higher = later)
+         - flex-grow: how much item should grow relative to others (default 0)
+         - flex-shrink: how much item should shrink relative to others (default 1)
+         - flex-basis: initial size before growing/shrinking (default auto)
+         - flex: shorthand for grow shrink basis (e.g., flex: 1 1 auto)
+         - align-self: override align-items for a single item
+         
+         Main Axis vs Cross Axis:
+         - flex-direction: row → main axis = horizontal, cross axis = vertical
+         - flex-direction: column → main axis = vertical, cross axis = horizontal
+         ============================================ */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        width: 100vw;
+        height: 100vh;
+        background-color: beige;
+        display: flex;              /* enables flexbox layout */
+        /* flex-direction: row; */  /* default: items arranged horizontally */
+        gap: 10px;                  /* 10px space between flex items */
+        justify-content: center;    /* center items on main axis */
+        align-items: center;        /* center items on cross axis */
+        /* justify-content: space-between; */ /* equal space between items */
+        /* flex-wrap: wrap-reverse; */
+        flex-flow: row wrap;        /* shorthand: direction=row, wrap=wrap */
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        /* margin: 10px; */
+      }
+      .box-2 {
+        /* align-self: end; */      /* override cross-axis alignment for this item */
+        /* flex-basis: 200px; */    /* initial size before flex-grow/shrink */
+        /* flex-shrink: 2; */       /* shrink 2x faster than others */
+        /* flex-grow: 2; */         /* grow 2x faster than others */
+        order: 2;                   /* display second */
+      }
+      .box-1{
+        order: 1;                   /* display first */
+      }
+      .box-3
+      {
+        order: 400;                 /* display last (highest order value) */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box box-1">item-1</div>
+      <div class="box box-2">item-2</div>
+      <div class="box box-3">item-3</div>
+      <!-- <div class="box box-1">item-1</div>
+        <div class="box box-2">item-2</div>
+        <div class="box box-3">item-3</div>
+         <div class="box box-1">item-1</div>
+        <div class="box box-2">item-2</div>
+        <div class="box box-3">item-3</div>
+         <div class="box box-1">item-1</div>
+        <div class="box box-2">item-2</div>
+        <div class="box box-3">item-3</div> -->
+    </div>
+  </body>
+</html>

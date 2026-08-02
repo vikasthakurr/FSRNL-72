@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* ============================================
+           CSS BOX MODEL NOTES
+           ============================================
+           
+           - Every HTML element is a rectangular box made up of 4 layers:
+           
+             1. Content – The actual content (text, image, etc.)
+             2. Padding – Space between the content and the border (inside the box)
+             3. Border – The edge around the padding
+             4. Margin – Space outside the border (between this element and others)
+           
+           Box Model Visualization:
+           ┌─────────── Margin ───────────┐
+           │ ┌──────── Border ──────────┐ │
+           │ │ ┌────── Padding ───────┐ │ │
+           │ │ │ ┌──── Content ─────┐ │ │ │
+           │ │ │ │                   │ │ │ │
+           │ │ │ └───────────────────┘ │ │ │
+           │ │ └───────────────────────┘ │ │
+           │ └───────────────────────────┘ │
+           └───────────────────────────────┘
+           
+           box-sizing property:
+           - content-box (default): width/height applies to content only.
+             Total width = width + padding-left + padding-right + border-left + border-right
+           - border-box: width/height includes content + padding + border.
+             Total width = width (padding and border are inside this value)
+           
+           Key Points:
+           - Padding adds space inside the element (pushes content inward).
+           - Border wraps around the padding.
+           - Margin creates space between elements (collapses vertically between siblings).
+           - Margin can be negative; padding cannot.
+           - Background color fills content + padding area, not margin.
+           ============================================ */
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* makes width/height include padding + border */
+        }
+        .container{
+            width: 500px;   /* total width including padding & border (due to border-box) */
+            height: 400px;  /* total height including padding & border */
+            background-color: red;
+            padding: 150px;          /* 150px space between content and border on all sides */
+            border: 100px solid black; /* 100px solid border around the padding */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+vikas
+    </div>
+</body>
+</html>
