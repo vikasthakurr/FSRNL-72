@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--
+    ===========================
+    CSS GRID NOTES
+    ===========================
+
+    1. What is CSS Grid?
+       - A 2-dimensional layout system (rows AND columns simultaneously)
+       - Parent becomes a grid container with display: grid
+       - Children become grid items automatically
+
+    2. Key Properties (Container / Parent):
+       - display: grid  → activates grid layout
+       - grid-template-columns: defines number and size of columns
+         e.g., grid-template-columns: 1fr 1fr 1fr (3 equal columns)
+         e.g., grid-template-columns: 200px 1fr 2fr (fixed + flexible)
+         e.g., grid-template-columns: repeat(3, 1fr) (shorthand for 3 equal)
+       - grid-template-rows: defines number and size of rows
+       - gap: shorthand for row-gap and column-gap
+       - row-gap / column-gap: space between rows/columns
+       - grid-template-areas: name areas for easy placement
+
+    3. Key Properties (Items / Children):
+       - grid-column-start / grid-column-end: span across columns
+       - grid-column: shorthand (e.g., 1/4 means column line 1 to 4)
+       - grid-row-start / grid-row-end: span across rows
+       - grid-row: shorthand (e.g., 2/4 means row line 2 to 4)
+       - grid-area: assign item to a named area
+
+    4. fr unit:
+       - "fraction" of available space
+       - 1fr 1fr 1fr = 3 equal parts
+       - 1fr 2fr = one-third + two-thirds
+
+    5. grid-template-areas:
+       - Define layout visually with named areas in quotes
+       - Each string = one row
+       - Each name in the string = one column
+       - Use same name across cells to span
+       - Example:
+         "header header header"
+         "sidebar content content"
+         "footer footer footer"
+
+    6. Grid vs Flexbox:
+       - Grid = 2D (rows + columns at the same time)
+       - Flexbox = 1D (either row OR column)
+       - Use Grid for full page layouts
+       - Use Flexbox for components/alignment within a section
+
+    7. Implicit vs Explicit Grid:
+       - Explicit: what you define with grid-template-*
+       - Implicit: extra rows/columns created automatically for overflow items
+       - Control implicit sizes with grid-auto-rows / grid-auto-columns
+
+    8. Alignment in Grid:
+       - justify-items: align items horizontally within their cell (start, end, center, stretch)
+       - align-items: align items vertically within their cell
+       - justify-content: align the entire grid horizontally in the container
+       - align-content: align the entire grid vertically in the container
+       - justify-self / align-self: override alignment for a single item
+
+    9. Common Use Cases:
+       - Page layouts (header, sidebar, content, footer)
+       - Card grids / galleries
+       - Dashboard layouts
+       - Any layout needing both row and column control
+    -->
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 900px;
+            height: 700px;
+            background-color: beige;
+            display: grid;
+            /* grid-template-columns: 1fr 1fr 1fr; */
+            
+            /* row-gap: 10px;
+            column-gap: 10px; */
+            gap: 10px;
+            grid-template-areas: "header header header" "sidebar content-1 content-1" "sidebar content-2 content-3" "footer footer footer";
+
+        }
+        /* 900px/3=>300px */
+        .child{
+            /* width: 100px;
+            height: 100px; */
+            background-color: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .child-1{
+            /* grid-column-start: 1;
+            grid-column-end: 4; */
+            /* grid-column: 1/4; */
+            grid-area: header;
+
+        }
+        .child-2{
+            /* grid-row-start: 2;
+            grid-row-end: 4; */
+            /* grid-row: 2/4; */
+            grid-area: sidebar;
+        }
+        .child-3{
+            grid-area: content-1;
+        }
+        .child-4{
+            grid-area: content-2;
+        }
+        .child-5{
+            grid-area: content-3;
+        }
+        .child-6{
+            grid-area: footer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="child child-1">header</div>
+        <div class="child child-2">sidebar</div>
+        <div class="child child-3">content-1</div>
+        <div class="child child-4">content-2</div>
+        <div class="child child-5">content-3</div>
+        <div class="child child-6">footer</div>
+    </div>
+</body>
+</html>

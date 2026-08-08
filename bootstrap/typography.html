@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Site</title>
+
+  <!--
+  ===========================
+  BOOTSTRAP TYPOGRAPHY NOTES
+  ===========================
+
+  1. What is Bootstrap Typography?
+     - Bootstrap provides pre-styled typography classes
+     - Resets browser defaults for consistent cross-browser rendering
+     - Base font-size: 1rem (usually 16px), line-height: 1.5
+     - Font-family: system font stack (native fonts for each OS)
+
+  2. Headings:
+     - Use <h1> to <h6> tags normally
+     - OR use .h1 to .h6 classes on any element to match heading styles
+       e.g., <p class="h1">Looks like h1</p>
+     - Headings are bold with calculated font-sizes:
+       h1 = 2.5rem, h2 = 2rem, h3 = 1.75rem,
+       h4 = 1.5rem, h5 = 1.25rem, h6 = 1rem
+
+  3. Display Headings:
+     - Larger, more prominent headings for hero sections
+     - Classes: .display-1, .display-2, .display-3, .display-4, .display-5, .display-6
+     - Thinner font-weight (300) with much larger font-size
+     - Use when you need headings that really stand out
+
+  4. Lead Paragraph:
+     - Class: .lead
+     - Makes a paragraph stand out (larger font-size: 1.25rem, lighter weight)
+     - Commonly used for intro/summary text below a heading
+
+  5. Inline Text Elements:
+     - <mark> or .mark → highlighted text (yellow background)
+     - <del> or <s> → strikethrough text
+     - <ins> or <u> → underlined text
+     - <small> or .small → smaller text (80% of parent)
+     - <strong> or <b> → bold text
+     - <em> or <i> → italic text
+
+  6. Text Alignment Classes:
+     - .text-start → left aligned (default)
+     - .text-center → center aligned
+     - .text-end → right aligned
+     - Responsive variants: .text-sm-center, .text-md-end, etc.
+
+  7. Text Transform Classes:
+     - .text-lowercase → all lowercase
+     - .text-uppercase → ALL UPPERCASE
+     - .text-capitalize → First Letter Of Each Word
+
+  8. Font Weight & Italics:
+     - .fw-bold → font-weight: 700
+     - .fw-bolder → font-weight: bolder
+     - .fw-normal → font-weight: 400
+     - .fw-light → font-weight: 300
+     - .fw-lighter → font-weight: lighter
+     - .fst-italic → font-style: italic
+     - .fst-normal → font-style: normal
+
+  9. Line Height:
+     - .lh-1 → line-height: 1
+     - .lh-sm → line-height: 1.25
+     - .lh-base → line-height: 1.5
+     - .lh-lg → line-height: 2
+
+  10. Text Decoration:
+      - .text-decoration-underline → underline
+      - .text-decoration-line-through → strikethrough
+      - .text-decoration-none → remove decoration (useful for links)
+
+  11. Text Colors (using contextual classes):
+      - .text-primary → blue
+      - .text-secondary → gray
+      - .text-success → green
+      - .text-danger → red
+      - .text-warning → yellow/orange
+      - .text-info → cyan
+      - .text-light → light gray (use on dark bg)
+      - .text-dark → dark/black
+      - .text-muted → lighter gray for secondary text
+
+  12. Blockquotes:
+      - Wrap in <blockquote class="blockquote">
+      - Add source with <figcaption class="blockquote-footer">
+      - Example:
+        <figure>
+          <blockquote class="blockquote">
+            <p>A quote here.</p>
+          </blockquote>
+          <figcaption class="blockquote-footer">
+            Author in <cite>Source</cite>
+          </figcaption>
+        </figure>
+
+  13. Lists:
+      - .list-unstyled → removes bullets/numbers and left padding
+      - .list-inline + .list-inline-item → horizontal list
+      - Works on <ul>, <ol>
+
+  14. Text Truncation:
+      - .text-truncate → truncates text with ellipsis (...)
+      - Requires display: inline-block or display: block
+
+  15. Text Wrapping:
+      - .text-wrap → allow text wrapping
+      - .text-nowrap → prevent text wrapping
+      - .text-break → break long words to prevent overflow
+  -->
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+</head>
+<body>
+<p class="h1">this is heading-1</p>
+<p class="display-1">this is heading-1</p>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--
+    ===========================
+    CSS POSITION NOTES
+    ===========================
+
+    1. What is CSS Position?
+       - Controls HOW an element is placed in the document
+       - Works with top, right, bottom, left properties to offset the element
+       - Default is "static" (normal document flow)
+
+    2. position: static (Default)
+       - Element stays in normal document flow
+       - top/right/bottom/left have NO effect
+       - Cannot be a reference for absolute children
+
+    3. position: relative
+       - Element stays in normal flow (still occupies original space)
+       - Can be offset with top/right/bottom/left FROM its original position
+       - Creates a new positioning context for absolute children
+       - Other elements behave as if it hasn't moved
+
+    4. position: absolute
+       - Element is REMOVED from normal flow (doesn't take space)
+       - Positioned relative to the NEAREST positioned ancestor
+         (nearest parent with position: relative/absolute/fixed/sticky)
+       - If no positioned ancestor, positions relative to <html> (viewport)
+       - Use case: overlays, tooltips, dropdowns, badges
+
+    5. position: fixed
+       - Element is REMOVED from normal flow
+       - Positioned relative to the VIEWPORT (browser window)
+       - Stays in place even when scrolling
+       - Use case: sticky navbars, floating buttons, chat widgets
+
+    6. position: sticky
+       - Hybrid of relative and fixed
+       - Behaves like relative UNTIL a scroll threshold is reached
+       - Then "sticks" like fixed at the specified offset
+       - Requires at least one of top/right/bottom/left to work
+       - Sticks within its parent container (stops sticking when parent scrolls out)
+       - Use case: sticky headers, table headers, section navigation
+
+    7. z-index:
+       - Controls stacking order of positioned elements (not static)
+       - Higher z-index = appears on top
+       - Only works on elements with position other than static
+       - Creates stacking context
+
+    8. Positioning Context:
+       - An absolute element looks UP the DOM tree for the first ancestor
+         with position: relative/absolute/fixed/sticky
+       - That ancestor becomes the reference point for top/left/etc.
+       - Common pattern: parent = relative, child = absolute
+
+    9. Key Differences Summary:
+       ┌──────────┬──────────────┬────────────────┬──────────────┐
+       │ Position │ In Flow?     │ Reference      │ Scrolls?     │
+       ├──────────┼──────────────┼────────────────┼──────────────┤
+       │ static   │ Yes          │ N/A            │ Yes          │
+       │ relative │ Yes          │ Its own pos    │ Yes          │
+       │ absolute │ No           │ Nearest pos.   │ Yes          │
+       │ fixed    │ No           │ Viewport       │ No (stays)   │
+       │ sticky   │ Yes → sticks │ Scroll + parent│ Sticks       │
+       └──────────┴──────────────┴────────────────┴──────────────┘
+    -->
+
+    <link rel="stylesheet" href="style.css">
+    
+    
+</head>
+<body>
+    <div class="container">
+        <div class="child child-1">item-1</div>
+        <div class="child child-2">item-2</div>
+        <div class="child child-3">item-3</div>
+        <div class="child child-4">item-4</div>
+        <div class="child child-5">item-5</div>
+        <div class="child child-6">item-6</div>
+    </div>
+</body>
+</html>

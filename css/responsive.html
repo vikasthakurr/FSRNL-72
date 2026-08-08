@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--
+    ===========================
+    CSS RESPONSIVE DESIGN NOTES
+    ===========================
+
+    1. What is Responsive Design?
+       - Making websites look good on ALL screen sizes (mobile, tablet, desktop)
+       - Content adapts/reflows based on viewport width/height
+       - "Design once, works everywhere"
+
+    2. Viewport Meta Tag (REQUIRED for responsive):
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       - width=device-width: page width matches device screen width
+       - initial-scale=1.0: no zoom on page load
+       - Without this tag, mobile browsers render at ~980px and zoom out
+
+    3. Media Queries:
+       - Apply styles ONLY when conditions are met
+       - Syntax: @media (condition) { styles }
+       - Common conditions:
+         @media (max-width: 768px) → styles for 768px and below
+         @media (min-width: 768px) → styles for 768px and above
+         @media (min-width: 768px) and (max-width: 1024px) → range
+         @media (orientation: landscape) → width > height
+         @media (orientation: portrait) → height > width
+
+    4. Common Breakpoints:
+       - Mobile: 320px - 480px
+       - Tablet: 481px - 768px
+       - Laptop: 769px - 1024px
+       - Desktop: 1025px - 1200px
+       - Large screens: 1201px+
+       
+       Note: These are guidelines, not rules. Choose breakpoints
+       where YOUR design breaks, not fixed device sizes.
+
+    5. Mobile-First vs Desktop-First:
+       - Mobile-First: write base styles for mobile, use min-width to scale UP
+         (Recommended approach)
+       - Desktop-First: write base styles for desktop, use max-width to scale DOWN
+
+    6. Responsive Units:
+       - % → relative to parent
+       - vw / vh → relative to viewport (1vw = 1% of viewport width)
+       - rem → relative to root font-size (usually 16px)
+       - em → relative to parent font-size
+       - fr → fraction of available space (in Grid)
+       - Avoid fixed px for widths/heights in responsive design
+
+    7. Responsive Images:
+       - max-width: 100% → image never exceeds container
+       - height: auto → maintain aspect ratio
+       - object-fit: cover/contain → control how image fills its box
+       - Use srcset attribute for different image sizes per device
+
+    8. Responsive Techniques:
+       - Fluid widths (%, vw) instead of fixed px
+       - Flexbox wrapping (flex-wrap: wrap)
+       - CSS Grid with auto-fit/auto-fill + minmax()
+         e.g., grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
+       - clamp() for fluid typography
+         e.g., font-size: clamp(1rem, 2.5vw, 2rem)
+
+    9. Orientation Media Query (used in this file):
+       - @media (orientation: landscape) → screen is wider than tall
+       - @media (orientation: portrait) → screen is taller than wide
+       - Useful for adjusting layouts on mobile rotation
+
+    10. Testing Responsive Design:
+        - Browser DevTools → device toolbar (Ctrl+Shift+M / Cmd+Shift+M)
+        - Resize browser window manually
+        - Test on actual devices when possible
+    -->
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 100vw;
+            height: 100vh;
+            background-color: beige;
+        }
+        .container img{
+            width: 400px;
+            height: 500px;
+        }
+        /* 378 to 478px */
+        /* 478 px to 676px */
+        /* 678 px to 978 px */
+        /* 978px to 1024px  */
+        /* 1024 to 1178px */
+
+        @media(orientation: landscape){
+           .container img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        @media(orientation: portrait){
+            .container img{
+                width: 300px;
+                height: 300px;
+                border-radius: 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://images.pexels.com/photos/6103841/pexels-photo-6103841.jpeg" alt="">
+    </div>
+</body>
+</html>
