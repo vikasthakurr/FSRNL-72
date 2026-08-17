@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bootstrap Site</title>
+
+    <!--
+    ===========================
+    BOOTSTRAP FORMS - NOTES
+    ===========================
+
+    1. What are Bootstrap Forms?
+       - Pre-styled form elements for consistent UI across browsers
+       - Provides classes for inputs, labels, validation, layout
+       - Forms are block-level by default (full width)
+
+    2. Core Form Classes:
+       - .form-control   → styles text inputs, textareas, selects
+         (full width, padding, border, focus ring)
+       - .form-label     → styles labels (adds margin-bottom)
+       - .form-text      → helper/hint text below inputs (small, muted)
+       - .form-select    → styled dropdown <select>
+       - .form-check     → wrapper for checkboxes and radios
+       - .form-check-input → the checkbox/radio input itself
+       - .form-check-label → label for checkbox/radio
+       - .form-switch    → toggle switch style checkbox
+
+    3. Input Sizing:
+       - .form-control-lg → large input
+       - .form-control-sm → small input
+       - Default is medium (no extra class)
+
+    4. Special Form Controls:
+       - .form-control-color     → color picker input (small square)
+       - .form-control-plaintext → read-only input styled as plain text
+       - .form-range            → styled range/slider input
+
+    5. Form Layout Options:
+
+       a) Vertical (default):
+          - Labels above inputs, full width
+          - Just use .form-label + .form-control
+
+       b) Horizontal Forms:
+          - Use .row and .col-* for side-by-side label + input
+          - Add .col-form-label on the label
+          - Example:
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label">Email</label>
+              <div class="col-sm-10">
+                <input class="form-control">
+              </div>
+            </div>
+
+       c) Inline Forms:
+          - Use .row .row-cols-* or flexbox utilities
+          - Compact form on a single line
+
+    6. Floating Labels:
+       - Labels that float above the input when focused/filled
+       - Structure:
+         <div class="form-floating">
+           <input class="form-control" id="x" placeholder="x">
+           <label for="x">Email</label>
+         </div>
+       - Input MUST have a placeholder (even if empty)
+       - Label MUST come after the input
+
+    7. Form Validation:
+       - .is-valid / .is-invalid → on inputs for visual feedback
+       - .valid-feedback / .invalid-feedback → messages shown below
+       - .was-validated on <form> → enables HTML5 validation styling
+       - Use "novalidate" on form for custom JS validation
+
+    8. Input Groups:
+       - Combine inputs with text, buttons, or other elements
+       - .input-group wraps everything
+       - .input-group-text for prepended/appended text
+       - Example:
+         <div class="input-group">
+           <span class="input-group-text">@</span>
+           <input class="form-control" placeholder="Username">
+         </div>
+
+    9. Checkboxes & Radios:
+       - Wrap in .form-check
+       - Input gets .form-check-input
+       - Label gets .form-check-label
+       - .form-check-inline → horizontal checkboxes
+       - .form-switch → toggle switch style
+
+    10. Disabled & Readonly:
+        - Add "disabled" attribute → grayed out, not interactive
+        - Add "readonly" attribute → visible but not editable
+        - .form-control-plaintext + readonly → looks like plain text
+
+    11. Form Control with Color (used in this file):
+        - .form-control-color → small color swatch input
+        - Provides a color picker UI
+        - Width is fixed (3rem by default)
+
+    12. Buttons in Forms:
+        - .btn + .btn-{variant} for submit/action buttons
+        - .btn-lg / .btn-sm for sizes
+        - Common: .btn-primary for main action
+    -->
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+      integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+      integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <form action="">
+        <label class="form-label" for="Email">Email:</label>
+        <input
+          class="form-control"
+          type="email"
+          name="email"
+          id="email"
+          placeholder="enter your email"
+        />
+        <label class="form-label" for="Email">Email:</label>
+        <input
+          class="form-control"
+          type="email"
+          name="email"
+          id="email"
+          placeholder="enter your email"
+        />
+        <label class="form-label" for="Email">Email:</label>
+        <input
+          class="form-control"
+          type="email"
+          name="email"
+          id="email"
+          placeholder="enter your email"
+        />
+        <label class="form-label" for="Email">Email:</label>
+        <input
+          class="form-control"
+          type="email"
+          name="email"
+          id="email"
+          placeholder="enter your email"
+        />
+
+        <label for="color" class="form-label"></label>
+
+        <input type="color" name="" id="" class="form-control-color" />
+
+        <!-- <div class="from-check form-switch">
+        <input type="text" class="form-switch-input">
+     </div> -->
+        <br />
+
+        <button class="btn btn-lg btn-primary">Login</button>
+       
+      </form>
+    </div>
+  </body>
+</html>

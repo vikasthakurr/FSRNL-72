@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bootstrap Site</title>
+
+    <!--
+    ===========================
+    BOOTSTRAP CONTAINERS - NOTES
+    ===========================
+
+    1. What is a Container?
+       - The most basic layout element in Bootstrap
+       - Required when using the grid system
+       - Provides horizontal padding and centers content
+       - Acts as a wrapper for page content
+
+    2. Container Types:
+
+       a) .container (Fixed-width / Responsive)
+          - Has a max-width at each responsive breakpoint
+          - Breakpoints and max-widths:
+            • xs (<576px)  → 100% width
+            • sm (≥576px)  → max-width: 540px
+            • md (≥768px)  → max-width: 720px
+            • lg (≥992px)  → max-width: 960px
+            • xl (≥1200px) → max-width: 1140px
+            • xxl (≥1400px) → max-width: 1320px
+
+       b) .container-fluid (Full-width)
+          - Always 100% width regardless of screen size
+          - Spans the entire viewport width
+          - Use for full-width layouts
+
+       c) .container-{breakpoint} (Responsive containers)
+          - 100% wide until the specified breakpoint, then fixed
+          - Options: .container-sm, .container-md, .container-lg,
+                     .container-xl, .container-xxl
+          - Example: .container-xxl → 100% until xxl breakpoint,
+                     then max-width: 1320px
+
+    3. Container Comparison Table:
+       Class              xs    sm     md     lg     xl     xxl
+       .container         100%  540px  720px  960px  1140px 1320px
+       .container-sm      100%  540px  720px  960px  1140px 1320px
+       .container-md      100%  100%   720px  960px  1140px 1320px
+       .container-lg      100%  100%   100%   960px  1140px 1320px
+       .container-xl      100%  100%   100%   100%   1140px 1320px
+       .container-xxl     100%  100%   100%   100%   100%   1320px
+       .container-fluid   100%  100%   100%   100%   100%   100%
+
+    4. Utility Classes Used Here:
+       - .bg-danger → red background color
+       - .mt-5     → margin-top: 3rem (spacing scale: 0-5)
+       - Spacing utilities: m (margin) / p (padding)
+         + t (top), b (bottom), s (start/left), e (end/right)
+         + x (left & right), y (top & bottom)
+         + Values: 0, 1(0.25rem), 2(0.5rem), 3(1rem), 4(1.5rem), 5(3rem)
+
+    5. When to Use Which Container:
+       - .container → most common, for centered fixed-width content
+       - .container-fluid → full-width sections (navbars, heroes, banners)
+       - .container-{bp} → when you want full-width on mobile but
+         fixed on larger screens
+
+    6. Nesting:
+       - Containers should NOT be nested inside each other
+       - Place rows directly inside containers
+       - Structure: container → row → col
+    -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container-xxl bg-danger mt-5">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio beatae non illo animi cupiditate, dolorem cum alias unde adipisci earum ipsa iure iusto tempora placeat, dicta fugit est incidunt, quam similique qui ducimus. Officiis, dolorem. Distinctio nisi doloremque provident, ducimus tempora excepturi doloribus itaque illo dignissimos iusto dicta officia consectetur, voluptatibus sint similique reiciendis ad alias. Iste amet, necessitatibus doloribus natus soluta eius minus distinctio sit provident quam expedita, ut deleniti, quis rerum asperiores maxime in libero sequi corrupti quas neque reiciendis illo dicta! Maxime impedit, provident, aperiam nisi a ipsam, ullam esse commodi expedita architecto possimus voluptatem corrupti. Praesentium?
+    </div>
+  </body>
+</html>

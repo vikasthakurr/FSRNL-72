@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Site</title>
+
+  <!--
+  ===========================
+  BOOTSTRAP ALERTS - NOTES
+  ===========================
+
+  1. What are Bootstrap Alerts?
+     - Pre-styled notification messages to provide feedback to users
+     - Used for success messages, warnings, errors, and informational notices
+     - Require the base class .alert + a contextual color class
+
+  2. Alert Contextual Classes:
+     - .alert-primary    → blue (general info)
+     - .alert-secondary  → gray (less important)
+     - .alert-success    → green (success/confirmation)
+     - .alert-danger     → red (error/critical)
+     - .alert-warning    → yellow/orange (caution)
+     - .alert-info       → cyan (informational)
+     - .alert-light      → light background
+     - .alert-dark       → dark background
+
+  3. Basic Usage:
+     <div class="alert alert-success">Success message!</div>
+     - Always include both .alert and the contextual class
+
+  4. Dismissible Alerts:
+     - Add .alert-dismissible class to the alert div
+     - Include a close button inside with:
+       <button class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+     - Requires Bootstrap JS (bootstrap.bundle.min.js) for dismiss functionality
+     - The alert is removed from the DOM when dismissed
+
+  5. Alert with Links:
+     - Use .alert-link class on <a> tags inside alerts
+     - Automatically matches the link color to the alert's contextual color
+     - Example: <a href="#" class="alert-link">Click here</a>
+
+  6. Alert with Additional Content:
+     - Can include headings, paragraphs, and dividers inside alerts
+     - Use .alert-heading for headings
+     - Use <hr> for dividers within the alert
+     - Example:
+       <div class="alert alert-success">
+         <h4 class="alert-heading">Well done!</h4>
+         <p>Some description here.</p>
+         <hr>
+         <p class="mb-0">Additional info.</p>
+       </div>
+
+  7. Animated Dismissal:
+     - Add .fade and .show classes for animated dismissal
+     - Example: <div class="alert alert-warning alert-dismissible fade show">
+     - The alert fades out smoothly when closed
+
+  8. JavaScript Events (for alerts):
+     - close.bs.alert  → fires immediately when close method is called
+     - closed.bs.alert → fires when alert has been closed and transitions complete
+     - Useful for triggering additional actions on dismiss
+
+  9. Accessibility:
+     - Use role="alert" for important alerts that need screen reader attention
+     - Always add aria-label="Close" on dismiss buttons
+     - For live updates, use aria-live="assertive" or aria-live="polite"
+
+  10. Best Practices:
+      - Don't overuse alerts; use them for meaningful messages only
+      - Keep alert text concise and actionable
+      - Use appropriate color for context (don't use .alert-danger for info)
+      - Always include dismiss option for non-critical alerts
+  -->
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<body>
+<div class="container">
+    <div class="alert alert-success">Alert</div>
+    <div class="alert alert-warning">warning</div>
+
+    <div class="alert alert-danger alert-dismissible">hi i am alert
+        <button class="btn-close" data-bs-dismiss="alert" aria-label="close">close</button>
+    </div>
+</div>
+</body>
+</html>

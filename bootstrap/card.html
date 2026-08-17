@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bootstrap Site</title>
+
+    <!--
+    ===========================
+    BOOTSTRAP CARDS & BUTTON GROUPS - NOTES
+    ===========================
+
+    === CARDS ===
+
+    1. What is a Bootstrap Card?
+       - A flexible, extensible content container
+       - Replaces old panels, wells, and thumbnails from Bootstrap 3
+       - Built with flexbox for easy alignment
+       - No fixed width by default (takes 100% of parent unless styled)
+
+    2. Card Structure:
+       <div class="card">
+         <div class="card-header">Header</div>
+         <img class="card-img-top" src="..." alt="...">
+         <div class="card-body">
+           <h5 class="card-title">Title</h5>
+           <h6 class="card-subtitle">Subtitle</h6>
+           <p class="card-text">Content text</p>
+           <a href="#" class="btn btn-primary">Action</a>
+         </div>
+         <div class="card-footer">Footer</div>
+       </div>
+
+    3. Key Card Classes:
+       - .card           → base container
+       - .card-header    → top section (often for titles/tabs)
+       - .card-body      → main content area with padding
+       - .card-footer    → bottom section
+       - .card-title     → title inside card-body
+       - .card-subtitle  → subtitle (use with .mb-2 .text-muted)
+       - .card-text      → paragraph text
+       - .card-link      → styled links inside cards
+       - .card-img-top   → image at top (rounded top corners)
+       - .card-img-bottom → image at bottom
+
+    4. Card Image Options:
+       - .card-img-top → image above card-body
+       - .card-img-bottom → image below card-body
+       - .card-img-overlay → text overlaid on the image
+       - Use .img-fluid on images for responsive sizing
+
+    5. Card Layouts (grouping multiple cards):
+       - .card-group → cards of equal width/height, connected together (no gap)
+       - .card-deck → (Bootstrap 4 only, removed in 5) equal height cards with gaps
+       - In Bootstrap 5, use .row + .col with cards for grid-based layout
+
+    6. Card Sizing:
+       - Use style="width: 18rem;" or utility classes (.w-25, .w-50, .w-75)
+       - Use grid system (col-*) for responsive card widths
+       - Cards have no fixed width by default
+
+    7. Card Colors:
+       - .bg-primary, .bg-success, .bg-danger, etc. for backgrounds
+       - .text-white for light text on dark cards
+       - .border-primary, .border-success, etc. for colored borders
+
+    === BUTTON GROUPS ===
+
+    8. What are Button Groups?
+       - Group a series of buttons together on a single line
+       - Useful for toolbars, toggle buttons, pagination-like controls
+
+    9. Button Group Classes:
+       - .btn-group          → horizontal button group
+       - .btn-group-vertical → vertical button group (stacked)
+       - .btn-group-lg       → large button group
+       - .btn-group-sm       → small button group
+
+    10. Button Group Usage:
+        <div class="btn-group">
+          <button class="btn btn-primary">Left</button>
+          <button class="btn btn-primary">Middle</button>
+          <button class="btn btn-primary">Right</button>
+        </div>
+
+    11. Button Toolbar:
+        - .btn-toolbar → combines multiple btn-groups
+        - Example:
+          <div class="btn-toolbar">
+            <div class="btn-group me-2">...</div>
+            <div class="btn-group">...</div>
+          </div>
+
+    12. Button Variants:
+        - .btn-primary   → blue
+        - .btn-secondary → gray
+        - .btn-success   → green
+        - .btn-danger    → red
+        - .btn-warning   → yellow
+        - .btn-info      → cyan
+        - .btn-light     → light
+        - .btn-dark      → dark
+        - .btn-outline-* → outlined versions of above
+
+    13. Button Sizes:
+        - .btn-lg → large button
+        - .btn-sm → small button
+        - Default is medium (no extra class needed)
+    -->
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+      integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+      integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- <div class="card-group">
+      <div class="card" style="width:400px">
+      <div class="card-header">
+        <img class="img-fluid"
+          src="https://images.pexels.com/photos/39001604/pexels-photo-39001604.jpeg"
+          alt=""
+        />
+      </div>
+      <div class="card-body">
+        <div class="card-title">
+            <h2>The Fish</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quasi dicta quos pariatur amet sit exercitationem dolore? Sint, veritatis possimus.</p>
+        </div>
+      </div>
+      <div class="card-foot">
+        <button class="btn btn-danger">Buy Now</button>
+      </div>
+    </div>
+      <div class="card" style="width:400px">
+      <div class="card-header">
+        <img class="img-fluid"
+          src="https://images.pexels.com/photos/39001604/pexels-photo-39001604.jpeg"
+          alt=""
+        />
+      </div>
+      <div class="card-body">
+        <div class="card-title">
+            <h2>The Fish</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quasi dicta quos pariatur amet sit exercitationem dolore? Sint, veritatis possimus.</p>
+        </div>
+      </div>
+      <div class="card-foot">
+        <button class="btn btn-danger">Buy Now</button>
+      </div>
+    </div>
+  </div> -->
+    <div class="btn-group-vertical">
+      <button class="btn btn-success">Login</button>
+      <button class="btn btn-danger">Logout</button>
+       <button class="btn btn-warning">Submit</button>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bootstrap Site</title>
+
+    <!--
+    ===========================
+    BOOTSTRAP GRID SYSTEM - NOTES
+    ===========================
+
+    1. What is the Bootstrap Grid?
+       - A 12-column responsive layout system
+       - Built with flexbox
+       - Allows creating complex layouts that adapt to screen size
+       - Structure: container → row → columns
+
+    2. Core Grid Structure:
+       <div class="container">
+         <div class="row">
+           <div class="col-6">Half width</div>
+           <div class="col-6">Half width</div>
+         </div>
+       </div>
+
+    3. Column Classes:
+       - .col      → equal width (auto-distributes space)
+       - .col-{n}  → fixed width (n out of 12 columns)
+       - .col-auto → width based on content
+       - Total columns in a row should = 12 (or less)
+       - If total > 12, extra columns wrap to next line
+
+    4. Responsive Breakpoints:
+       - .col-     → extra small (xs, <576px) - always applies
+       - .col-sm-  → small (≥576px)
+       - .col-md-  → medium (≥768px)
+       - .col-lg-  → large (≥992px)
+       - .col-xl-  → extra large (≥1200px)
+       - .col-xxl- → extra extra large (≥1400px)
+
+    5. Responsive Example:
+       <div class="col-12 col-md-6 col-lg-4">
+       - Full width on mobile (12/12)
+       - Half width on tablet (6/12)
+       - One-third on desktop (4/12)
+
+    6. Row Columns:
+       - .row-cols-{n} → sets equal columns per row
+       - Example: .row-cols-3 → each child is 1/3 width
+       - Responsive: .row-cols-md-3
+
+    7. Gutters (spacing between columns):
+       - .g-{n}  → gutter (both x and y), n = 0-5
+       - .gx-{n} → horizontal gutter only
+       - .gy-{n} → vertical gutter only
+       - .g-0    → no gutters (columns touch each other)
+
+    8. Offsetting Columns:
+       - .offset-{n}    → push column right by n columns
+       - .offset-md-{n} → responsive offset
+       - Example: .offset-3 → starts at column 4 (skips 3)
+
+    9. Column Ordering:
+       - .order-{n}   → reorder columns visually (n = 0-5)
+       - .order-first → moves to the beginning
+       - .order-last  → moves to the end
+
+    10. Nesting:
+        - Place a new .row inside a column
+        - The nested row gets its own 12-column grid
+        - Example:
+          <div class="col-6">
+            <div class="row">
+              <div class="col-6">Nested half</div>
+              <div class="col-6">Nested half</div>
+            </div>
+          </div>
+
+    11. Alignment (using flexbox utilities):
+        - Vertical alignment (on row):
+          .align-items-start / .align-items-center / .align-items-end
+        - Individual column vertical:
+          .align-self-start / .align-self-center / .align-self-end
+        - Horizontal alignment (on row):
+          .justify-content-start / center / end / around / between / evenly
+
+    12. Image Classes Used Here:
+        - .img-fluid     → max-width: 100%, height: auto (responsive)
+        - .img-thumbnail → adds rounded border + padding (like a frame)
+        - .rounded       → rounded corners on image
+
+    13. Grid Tips:
+        - Always wrap columns inside a .row
+        - Always wrap rows inside a .container or .container-fluid
+        - Use responsive classes for mobile-first design
+        - Columns without a number (.col) auto-share available space
+        - Mix fixed (.col-6) and auto (.col) columns in same row
+    -->
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+      integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <!-- <div class="col">item-1</div>
+        <div class="col">item-2</div>
+        <div class="col">item-3</div>
+        <div class="col">item-4</div>
+        <div class="col">item-5</div>
+        <div class="col">item-6</div>
+        <div class="col">item-7</div>
+        <div class="col">item-8</div>
+        <div class="col">item-9</div>
+        <div class="col">item-10</div>
+        <div class="col">item-11</div>
+        <div class="col">item-12</div> -->
+        <div class="col-6 bg-success">
+            <img class="img-thumbnail" src="https://images.pexels.com/photos/39001604/pexels-photo-39001604.jpeg" alt="">
+        </div>
+        <div class="col-4 bg-danger">vikas</div>
+        <div class="col-2">signup</div>
+        
+      </div>
+    </div>
+  </body>
+</html>
