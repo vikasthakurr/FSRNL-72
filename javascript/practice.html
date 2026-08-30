@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function autoMailer(to) {
+        return function (sub) {
+          return function (body) {
+            console.log(
+              `mail has been sent to ${to} with subject of ${sub} and body is ${body}`,
+            );
+          };
+        };
+      }
+      autoMailer("vikas@gmail.com")("welcome to js")("'hi this is body");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="green">Green</button>
+    <button id="red">Red</button>
+
+    <script>
+      // ===== TWO BUTTON / CLOSURE NOTES =====
+      // Goal: clicking a button changes the page background color.
+      //
+      // handleClick(color) is a FUNCTION FACTORY:
+      // - It does NOT change the color itself.
+      // - It returns a NEW function that "remembers" the `color` passed in
+      //   (that remembered value is the closure).
+      //
+      // So handleClick("red")  -> a function that sets background to red.
+      //    handleClick("green")-> a function that sets background to green.
+      //
+      // We assign those returned functions to each button's onclick, so when
+      // the button is clicked later, the closure still knows its own color.
+      //
+      // Note: handleClick is HOISTED (function declaration), so it can be used
+      // on the lines above its definition.
+      const red = (document.getElementById("red").onclick = handleClick("red"));
+      const green = (document.getElementById("green").onclick =
+        handleClick("green"));
+
+      function handleClick(color) {
+        // returned function closes over `color`
+        return function () {
+          document.body.style.backgroundColor = color;
+        };
+      }
+    </script>
+  </body>
+</html>

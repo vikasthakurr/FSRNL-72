@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // ===== CLOSURE NOTES =====
+      // A closure is a function that "remembers" the variables from the
+      // scope where it was created, even after that outer scope has finished
+      // executing.
+      //
+      // How it works below:
+      // 1. outer() runs and creates a local variable `a = 10`.
+      // 2. outer() returns the `inner` function (the function itself, NOT its result).
+      // 3. Normally `a` would be garbage-collected once outer() finished,
+      //    but `inner` still references `a`, so JS keeps `a` alive in memory.
+      // 4. When we later call result(), inner() can still access `a` -> logs 10.
+      //
+      // Key point: `inner` carries a reference to its birth environment.
+      // That bundle of (function + surrounding variables) is the closure.
+      //
+      // Why useful: data privacy (a is not accessible from outside), function
+      // factories, currying, event handlers that remember state.
+      function outer() {
+        let a = 10; // private variable, only reachable via the closure
+
+        function inner() {
+          console.log(a); // `inner` closes over `a`
+        }
+        return inner; // returning the function, not calling it
+      }
+      let result = outer(); // result now holds the `inner` function
+      // console.log(result); // would print the function definition
+      result(); // logs 10 -> `a` is still remembered
+      // outer().a  // undefined: `a` is private, can't be reached from outside
+    </script>
+  </body>
+</html>
