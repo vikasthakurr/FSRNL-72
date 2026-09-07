@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>abort controller panel</h1>
+
+    <button id="start">Start api Call</button>
+    <button id="stop">Stop api Call</button>
+
+    <p id="status"></p>
+
+    <script>
+      // ============================================================
+      // ABORT CONTROLLER NOTES
+      // ============================================================
+      // Problem: a fetch() cannot normally be stopped once it starts.
+      // AbortController lets you CANCEL an in-flight fetch (or any async task
+      // that accepts a signal), e.g. a slow request or when the user leaves.
+      //
+      // How it works (3 pieces):
+      //   1. controller = new AbortController()  -> creates a controller.
+      //   2. controller.signal                   -> a signal you hand to fetch
+      //                                              via the { signal } option.
+      //   3. controller.abort()                  -> cancels; the fetch's promise
+      //                                              REJECTS with an error whose
+      //                                              name is "AbortError".
+      //
+      // One controller/signal is single-use: after abort() it stays aborted.
+      // That's why we make a NEW AbortController on every Start click below.
+      // ============================================================
+
+      let controller; // declared outside so the Stop button can reach it later
+      let timeoutId; // id of the setTimeout, so we can cancel it too
+
+      document.getElementById("start").addEventListener("click", () => {
+        // fresh controller each time (an aborted one can't be reused)
+        controller = new AbortController();
+
+        const signal = controller.signal; // pass this into fetch to make it cancelable
+        const status = document.getElementById("status");
+        status.textContent = "Fetching the data please wait....";
+
+        // { signal } links this fetch to the controller above.
+        fetch("https://jsonplaceholder.typicode.com/todos/1", { signal })
+          .then((response) => response.json())
+          .then((data) => {
+            // (demo) wait 5s before showing data, so there's time to hit Stop
+            timeoutId = setTimeout(() => {
+              status.textContent = JSON.stringify(data, null, 2);
+            }, 5000);
+          })
+          .catch((err) => {
+            // when controller.abort() runs, fetch rejects here with AbortError
+            if (err.name == "AbortError") {
+              clearTimeout(timeoutId); // also stop the pending display timer
+              status.textContent = "fetch requested is  Aborted";
+            } else {
+              status.textContent = err.message; // any other (real) network error
+            }
+          });
+      });
+      document.getElementById("stop").addEventListener("click", () => {
+        // abort() cancels the fetch if one is in progress -> triggers the
+        // AbortError branch in the .catch above.
+        if (controller) {
+          controller.abort();
+        }
+        clearTimeout(timeoutId); // cancel the delayed display too
+        document.getElementById("status").textContent =
+          "fetch requested is  Aborted";
+      });
+    </script>
+  </body>
+</html>
