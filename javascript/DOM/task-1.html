@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .circle {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: red;
+        margin: 5px;
+        display: inline-block;
+      }
+      .container {
+        width: 700px;
+        height: 800px;
+        background-color: beige;
+      }
+    </style>
+  </head>
+  <body>
+    <input id="shapenumber" type="text" placeholder="enter no shape" />
+    <button id="generate">Generate</button>
+    <div class="container"></div>
+
+    <script>
+      let btn = document.querySelector("#generate");
+      btn.addEventListener("click", (e) => {
+        const shapeNumber = document.querySelector("#shapenumber").value;
+        // console.log(shapeNumber)
+        for (let i = 0; i < shapeNumber; i++) {
+          let shape = document.createElement("div");
+          shape.classList.add("circle");
+          document.querySelector(".container").appendChild(shape);
+        }
+        
+      });
+    </script>
+  </body>
+</html>

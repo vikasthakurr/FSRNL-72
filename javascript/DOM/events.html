@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .gp {
+        width: 700px;
+        height: 700px;
+        background-color: beige;
+      }
+      .parent {
+        width: 50%;
+        height: 50%;
+        background-color: blueviolet;
+      }
+      .child {
+        width: 50%;
+        height: 50%;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body class="body">
+    <div class="gp">
+      <div class="parent">
+        <div class="child"></div>
+      </div>
+      <h1 id="info"></h1>
+    </div>
+
+    <script>
+      // ============================================================
+      // EVENTS + PROPAGATION NOTES
+      // ============================================================
+      // An EVENT is a signal that something happened (click, keypress,
+      // mouseover, submit...). We react with addEventListener(type, handler).
+      //
+      // Because elements are NESTED (gp > parent > child here), a click on the
+      // child also "counts" for its ancestors. PROPAGATION is the order in
+      // which the event travels through those nested elements.
+      //
+      // Propagation happens in 3 PHASES:
+      //   1. CAPTURING (a.k.a. TRICKLING) phase:
+      //        The event goes DOWN from the top (document -> body -> gp ->
+      //        parent -> child). "Trickling" = trickles down = capturing.
+      //   2. TARGET phase:
+      //        The event reaches e.target (the actual element clicked, e.g. child).
+      //   3. BUBBLING phase:
+      //        The event travels back UP (child -> parent -> gp -> body ->
+      //        document). This is the DEFAULT phase listeners run in.
+      //
+      // Full path for a click on .child:
+      //   DOWN  document -> body -> gp -> parent -> child   (capturing)
+      //   then  child                                       (target)
+      //   UP    child -> parent -> gp -> body -> document   (bubbling)
+      //
+      // WHICH PHASE does my listener run in? -> the 3rd arg of addEventListener:
+      //   el.addEventListener(type, handler)          // bubbling (default)
+      //   el.addEventListener(type, handler, false)   // bubbling
+      //   el.addEventListener(type, handler, true)    // capturing (trickling)
+      //
+      // USEFUL EVENT OBJECT (e) PROPERTIES/METHODS:
+      //   e.target          -> the element that ACTUALLY triggered it (deepest)
+      //   e.currentTarget   -> the element the listener is ATTACHED to
+      //   e.stopPropagation()-> stops the event from continuing up/down the chain
+      //   e.preventDefault() -> cancels the default browser action (e.g. form submit)
+      //
+      // EVENT DELEGATION:
+      //   A pattern that USES bubbling. Instead of adding a listener to many
+      //   children, add ONE listener to a shared PARENT and check e.target to
+      //   figure out which child was clicked.
+      //   Benefits: fewer listeners (better performance) and it also works for
+      //   elements added to the page LATER (dynamic content).
+      //   That's exactly what the code below does: one listener on <body>, and
+      //   e.target.className tells us which nested box was clicked.
+      // ============================================================
+
+      // ONE listener on the body (delegation). Thanks to BUBBLING, clicking the
+      // child/parent/gp all bubble up to body and trigger this handler.
+      document.body.addEventListener("click", (e) => {
+        // e.target = the deepest element actually clicked (not always the body)
+        document.querySelector("#info").textContent =
+          `${e.target.className} was clicked`;
+
+        // console.log(e.target)      // inspect which element was clicked
+        // e.stopPropagation()        // would stop the event traveling further
+      });
+
+      // If we instead attached listeners to each level, with bubbling (default)
+      // clicking the child would log: child -> parent (bubbles up).
+      // Calling e.stopPropagation() inside child would prevent parent from firing.
+      //   parent.addEventListener("click", (e) => {
+      //     console.log("parent was clicked");
+      //     // e.stopPropagation()
+      //   });
+      //   child.addEventListener("click", (e) => {
+      //     console.log("child was clicked");
+      //     // e.stopPropagation()
+      //   });
+    </script>
+  </body>
+</html>

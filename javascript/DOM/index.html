@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .akash {
+        width: 100px;
+        height: 200px;
+        background-color: red;
+      }
+      .circle{
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>this is selected by tag name</h1>
+    <h1 id="heading-2">this is selected by id</h1>
+
+    <p class="para">item-1</p>
+    <p class="para">item-2</p>
+    <p class="para">item-3</p>
+    <p class="para">item-4</p>
+
+    <div class="container">
+      
+    </div>
+
+    <script>
+      // ============================================================
+      // DOM NOTES (Document Object Model) — in detail
+      // ============================================================
+      // The DOM is the browser's live, tree-shaped representation of the HTML
+      // page. Each tag becomes a NODE/element object. JavaScript uses the
+      // global `document` object to read and change this tree, so the page can
+      // update WITHOUT a reload.
+      //
+      // Tree terms: parent, child, sibling. <html> is the root; every element
+      // has a parent (except <html>) and may have children.
+      //
+      // ------------------------------------------------------------
+      // 1) SELECTING / ACCESSING ELEMENTS
+      // ------------------------------------------------------------
+      //   document.getElementById("id")            -> ONE element (or null)
+      //   document.getElementsByClassName("cls")   -> LIVE HTMLCollection
+      //   document.getElementsByTagName("p")       -> LIVE HTMLCollection
+      //   document.querySelector(".cls")           -> FIRST match (CSS selector)
+      //   document.querySelectorAll(".cls")        -> ALL matches (static NodeList)
+      //
+      // Notes:
+      //   - querySelector/All take any CSS selector: "#id", ".class", "div p".
+      //   - HTMLCollection is "live" (auto-updates); NodeList from querySelectorAll
+      //     is "static" (a snapshot). Use forEach on NodeList; for collections
+      //     convert with Array.from() first.
+      //
+      // ------------------------------------------------------------
+      // 2) READING / CHANGING CONTENT
+      // ------------------------------------------------------------
+      //   el.textContent   -> get/set plain TEXT (safe, no HTML parsing)
+      //   el.innerText     -> visible text (respects styling)
+      //   el.innerHTML     -> get/set HTML markup (careful: XSS risk with user data)
+      //   el.value         -> for form inputs
+      //
+      // ------------------------------------------------------------
+      // 3) ATTRIBUTES & STYLES
+      // ------------------------------------------------------------
+      //   el.setAttribute("src", "...")  / el.getAttribute("src")
+      //   el.removeAttribute("alt")
+      //   el.id, el.src (direct properties for common attributes)
+      //   el.style.height = "200px"      -> inline CSS (camelCase: backgroundColor)
+      //   el.classList.add("x") / .remove("x") / .toggle("x") / .contains("x")
+      //
+      // ------------------------------------------------------------
+      // 4) NAVIGATING THE TREE
+      // ------------------------------------------------------------
+      //   el.parentNode / el.parentElement
+      //   el.children (elements) / el.childNodes (incl. text nodes)
+      //   el.firstElementChild / el.lastElementChild
+      //   el.nextElementSibling / el.previousElementSibling
+      //
+      // ------------------------------------------------------------
+      // 5) CREATING / INSERTING / REMOVING ELEMENTS
+      // ------------------------------------------------------------
+      //   document.createElement("div")  -> makes a NEW element (not on page yet)
+      //   parent.appendChild(child)      -> add as LAST child
+      //   parent.append(a, b)            -> add nodes/strings at end (newer)
+      //   parent.prepend(child)          -> add as FIRST child
+      //   parent.insertBefore(new, ref)  -> insert before a reference child
+      //   child.remove()                 -> delete the element
+      //   parent.removeChild(child)      -> older way to delete
+      // ============================================================
+
+      // --- SELECTING examples ---
+      // getElementsByClassName -> live HTMLCollection of all .para paragraphs
+      // let result=document.getElementsByClassName("para");
+      // querySelectorAll -> static NodeList of all .para paragraphs
+      // let result=document.querySelectorAll(".para");
+      // console.log(result)
+
+      // querySelector -> grabs the FIRST element matching ".container"
+      let result = document.querySelector(".container");
+
+      // --- classList (add/remove CSS classes) ---
+      //   result.classList.add("akash");     // apply the .akash styles
+      //   result.classList.remove("container")// drop the .container class
+      //   console.log(result.classList);
+      // console.log(result)
+
+      // --- tree navigation ---
+      //   console.log(result.parentNode);   // the element wrapping .container
+      // console.log(result.children)        // its child elements
+
+      // --- CREATING an image element and adding it ---
+      //   let img=document.createElement("img");                 // build <img> in memory
+      //   img.setAttribute("src","https://images.pexels.com/photos/34500162/pexels-photo-34500162.jpeg")
+      //   img.setAttribute("alt","image of flowers")             // accessibility text
+      //   img.style.height="200px"                               // inline style
+      //   result.appendChild(img)                                // now put it on the page
+      //   console.log(img)
+
+      // --- ACTIVE code: create a div, style it via a class, and insert it ---
+      let circle = document.createElement("div"); // 1) create empty <div> (in memory)
+      circle.classList.add("circle");             // 2) add .circle class -> gets its CSS
+      result.appendChild(circle);                 // 3) append inside .container -> visible now
+    </script>
+  </body>
+</html>

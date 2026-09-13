@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .circle {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        /* background-color: red; */
+        margin: 5px;
+        display: inline-block;
+      }
+      .square {
+        width: 100px;
+        height: 100px;
+        /* background-color: blue; */
+        margin: 5px;
+        display: inline-block;
+      }
+      .rectangle {
+        width: 200px;
+        height: 100px;
+        /* background-color: yellow; */
+        margin: 5px;
+        display: inline-block;
+      }
+      .container {
+        width: 700px;
+        height: 800px;
+        background-color: beige;
+      }
+    </style>
+  </head>
+  <body>
+    <input id="shapenumber" type="text" placeholder="enter no shape" />
+    <input
+      id="shapename"
+      type="text"
+      name=""
+      id=""
+      placeholder="enter shape name"
+    />
+    <input id="shapecolor" type="color" name="" id="" />
+    <button id="generate">Generate</button>
+    <div class="container"></div>
+
+    <script>
+      document.querySelector("#generate").addEventListener("click", (e) => {
+        document.querySelector(".container").innerHTML = "";
+        const shapename = document.querySelector("#shapename").value;
+        const shapecolor = document.querySelector("#shapecolor").value;
+        const shapenumber = document.querySelector("#shapenumber").value;
+        // console.log(shapename,shapecolor,shapenumber)
+
+        for (let i = 0; i < shapenumber; i++) {
+          const shape = document.createElement("div");
+          shape.classList.add(shapename);
+          shape.style.backgroundColor = shapecolor;
+          document.querySelector(".container").appendChild(shape);
+        }
+      });
+    </script>
+  </body>
+</html>
