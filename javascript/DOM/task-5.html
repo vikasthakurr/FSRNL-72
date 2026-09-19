@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .dp {
+        width: 300px;
+        height: 300px;
+        border: 2px solid yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <input
+      id="userinput"
+      type="text"
+      placeholder="enter your github username"
+    />
+    <button id="search">Search</button>
+
+    <script>
+      let search = document.querySelector("#search");
+      //github api
+
+      search.addEventListener("click", () => {
+        let username = document.querySelector("#userinput").value;
+        if (!username) {
+          alert("please enter username");
+        } else {
+          fetch(`https://api.github.com/users/${username}`)
+            .then((res) => {
+              return res.json();
+            })
+            .then((data) => {
+              let img = document.createElement("img");
+              img.setAttribute("src", data.avatar_url);
+              img.setAttribute("alt", "this is dp of vikas");
+              document.body.appendChild(img);
+            });
+        }
+      });
+    </script>
+  </body>
+</html>
