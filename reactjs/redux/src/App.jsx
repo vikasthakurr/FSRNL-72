@@ -1,6 +1,14 @@
+import AddTodo from "./AddTodo";
+import ViewTodo from "./ViewTodo";
+
 const App = () => {
   return (
-    <div>App</div>
-  )
-}
-export default App
+    <div>
+      <AddTodo />
+      <br />
+      <br />
+      <ViewTodo />
+    </div>
+  );
+};
+export default App;
