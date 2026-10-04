@@ -30,3 +30,21 @@ export const todoSlice = createSlice({
 export const { addTodo, updateTodo, deleteTodo, removeAll } = todoSlice.actions;
 
 export default todoSlice.reducer;
+
+//dead code removal
+
+// const isLoggedIn = true;
+
+// if (!isLoggedIn) {
+//   console.log("user is logged in");
+// } else {
+//   console.log("user is not logged in");
+// }
+//context
+// const true;
+// if(true){
+//   console.log("loggedin")
+// }
+// else{
+//   console.log("not logged in")
+// }
