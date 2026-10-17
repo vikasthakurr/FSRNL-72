@@ -1,0 +1,22 @@
+{
+  "name": "firstscript",
+  "version": "1.0.0",
+  "description": "first script of nodejs",
+  "keywords": [
+    "Node",
+    "Nodejs",
+    "Event"
+  ],
+  "license": "ISC",
+  "author": "Vikas Thakur",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "dependencies": {
+    "figlet": "^1.12.0",
+    "nodemon": "^3.1.14"
+  }
+}
