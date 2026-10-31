@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 import { rateLimit } from "express-rate-limit";
+import jwt from "jsonwebtoken";
 
 const app = express();
 app.use(express.json());
@@ -65,10 +66,43 @@ app.post("/login", async (req, res) => {
   if (!isMatch)
     return res.status(400).json({ message: "password not matched" });
 
-  res.status(200).json({ message: "login successfull", user });
+  //token assignment
+  const token = jwt.sign(
+    {
+      userId: user._id,
+      email: user.email,
+      role: "admin",
+    },
+    "Vikas123",
+  );
+  res.cookie("jwt-token", token, {
+    httpOnly: true,
+    maxAge: 24 * 60 * 60 * 1000,
+    sameSite: true,
+    secure: true,
+  });
+  // console.log(token);
+  res.status(200).json({ message: "login successfull", token });
 });
-
-app.get("/users", limiter, async (req, res) => {
+//token middleware...
+const verifyToken = (req, res, next) => {
+  const token = req.headers.authorization;
+  if (!token || !token.startsWith("Bearer ")) {
+    return res.status(401).json({ message: "token is not valid or availble" });
+  }
+  // token=Bearer asdfghasdfjafsfsdfjsdf
+  const tokenValue = token.split(" ")[1];
+  try {
+    const isVerified = jwt.verify(tokenValue, "Vikas123");
+    req.user = isVerified;
+    next();
+  } catch (err) {
+    return res.status(401).json({ message: "invalid token" });
+  }
+};
+app.get("/users",verifyToken, async (req, res) => {
+  console.log(req.user.role)
+  // if(req.user.role==="admin")
   const users = await User.find();
   if (!users)
     return res.status(404).json({
