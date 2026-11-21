@@ -1,0 +1,17 @@
+import express from "express";
+import getStats from "../controllers/admincontroller/getStats.controller.js";
+import getAllUsers from "../controllers/admincontroller/getAllUsers.controller.js";
+import getAllOrders from "../controllers/admincontroller/getAllOrders.controller.js";
+import updateOrder from "../controllers/admincontroller/updateOrder.controller.js";
+import deleteOrder from "../controllers/admincontroller/deleteOrder.controller.js";
+import verifyToken from "../middleware/verifyToken.middle.js";
+import isAdmin from "../middleware/isAdmin.middle.js";
+import { adminReadLimiter } from "../config/rateLimit.config.js";
+const adminRoute = express.Router();
+adminRoute.use(verifyToken, isAdmin, adminReadLimiter);
+adminRoute.get("/stats", getStats);
+adminRoute.get("/users", getAllUsers);
+adminRoute.get("/orders", getAllOrders);
+adminRoute.patch("/orders/:orderId", updateOrder);
+adminRoute.delete("/orders/:orderId", deleteOrder);
+export default adminRoute;
